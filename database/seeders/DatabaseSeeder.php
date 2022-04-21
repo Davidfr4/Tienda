@@ -36,21 +36,26 @@ class DatabaseSeeder extends Seeder
         }
 
        // PRODUCTOS
-       \App\Models\Producto::create(['id'=> 1, 'name'=>"Iphone 13", 'precio'=> 1300, 'cantidad'=>20, 'fabricante'=>'Apple']);
-       \App\Models\Producto::create(['id'=> 2, 'name'=>"Xiaomi Redmi 9", 'precio'=> 800, 'cantidad'=>10, 'fabricante'=>'Xiaomi']);
-       \App\Models\Producto::create(['id'=> 3, 'name'=>"RTX 3060", 'precio'=> 700, 'cantidad'=>5, 'fabricante'=>'Nvidia']);
-       \App\Models\Producto::create(['id'=> 4, 'name'=>"SSD 500GB", 'precio'=> 70, 'cantidad'=>50, 'fabricante'=>'SanDisk']);
-       \App\Models\Producto::create(['id'=> 5, 'name'=>"HDD 2TB", 'precio'=> 1300, 'cantidad'=>25, 'fabricante'=>'Seagate']);
-       \App\Models\Producto::create(['id'=> 6, 'name'=>"Fuente de alimentación 650W", 'precio'=> 60, 'cantidad'=>60, 'fabricante'=>'Nfortec']);
-       \App\Models\Producto::create(['id'=> 7, 'name'=>"Memoria RAM 2x8 GB", 'precio'=> 90, 'cantidad'=>40, 'fabricante'=>'Corsair']);
-       \App\Models\Producto::create(['id'=> 8, 'name'=>"Impresora 3D", 'precio'=> 2500, 'cantidad'=>15, 'fabricante'=>'Tumaker']);
-       \App\Models\Producto::create(['id'=> 9, 'name'=>"Caja semitorre", 'precio'=> 50, 'cantidad'=>100, 'fabricante'=>'NOX']);
-       \App\Models\Producto::create(['id'=> 10, 'name'=>"Pantalla ordenador", 'precio'=> 400, 'cantidad'=>80, 'fabricante'=>'AOC']);
-       \App\Models\Producto::create(['id'=> 11, 'name'=>"Repetidor wifi", 'precio'=> 50, 'cantidad'=>45, 'fabricante'=>'TP-Link']);
-       \App\Models\Producto::create(['id'=> 12, 'name'=>"Ratón", 'precio'=> 25, 'cantidad'=>220, 'fabricante'=>'Logitech']);
-       \App\Models\Producto::create(['id'=> 13, 'name'=>"Pasta térmica", 'precio'=> 15, 'cantidad'=>60, 'fabricante'=>'NOX']);
-       \App\Models\Producto::create(['id'=> 14, 'name'=>"Teclado", 'precio'=> 40, 'cantidad'=>250, 'fabricante'=>'Logitech']);
-       \App\Models\Producto::create(['id'=> 15, 'name'=>"Nevera", 'precio'=> 700, 'cantidad'=>120, 'fabricante'=>'Balay']);
+       \App\Models\Producto::create(['id'=> 1, 'name'=>"Iphone 13", 'precio'=> 1300, 'stock'=>20, 'fabricante'=>'Apple']);
+       \App\Models\Producto::create(['id'=> 2, 'name'=>"Xiaomi Redmi 9", 'precio'=> 800, 'stock'=>10, 'fabricante'=>'Xiaomi']);
+       \App\Models\Producto::create(['id'=> 3, 'name'=>"RTX 3060", 'precio'=> 700, 'stock'=>5, 'fabricante'=>'Nvidia']);
+       \App\Models\Producto::create(['id'=> 4, 'name'=>"SSD 500GB", 'precio'=> 70, 'stock'=>50, 'fabricante'=>'SanDisk']);
+       \App\Models\Producto::create(['id'=> 5, 'name'=>"HDD 2TB", 'precio'=> 1300, 'stock'=>25, 'fabricante'=>'Seagate']);
+       \App\Models\Producto::create(['id'=> 6, 'name'=>"Fuente de alimentación 650W", 'precio'=> 60, 'stock'=>60, 'fabricante'=>'Nfortec']);
+       \App\Models\Producto::create(['id'=> 7, 'name'=>"Memoria RAM 2x8 GB", 'precio'=> 90, 'stock'=>40, 'fabricante'=>'Corsair']);
+       \App\Models\Producto::create(['id'=> 8, 'name'=>"Impresora 3D", 'precio'=> 2500, 'stock'=>15, 'fabricante'=>'Tumaker']);
+       \App\Models\Producto::create(['id'=> 9, 'name'=>"Caja semitorre", 'precio'=> 50, 'stock'=>100, 'fabricante'=>'NOX']);
+       \App\Models\Producto::create(['id'=> 10, 'name'=>"Pantalla ordenador", 'precio'=> 400, 'stock'=>80, 'fabricante'=>'AOC']);
+       \App\Models\Producto::create(['id'=> 11, 'name'=>"Repetidor wifi", 'precio'=> 50, 'stock'=>45, 'fabricante'=>'TP-Link']);
+       \App\Models\Producto::create(['id'=> 12, 'name'=>"Ratón", 'precio'=> 25, 'stock'=>220, 'fabricante'=>'Logitech']);
+       \App\Models\Producto::create(['id'=> 13, 'name'=>"Pasta térmica", 'precio'=> 15, 'stock'=>60, 'fabricante'=>'NOX']);
+       \App\Models\Producto::create(['id'=> 14, 'name'=>"Teclado", 'precio'=> 40, 'stock'=>250, 'fabricante'=>'Logitech']);
+       \App\Models\Producto::create(['id'=> 15, 'name'=>"Nevera", 'precio'=> 700, 'stock'=>120, 'fabricante'=>'Balay']);
+
+       // CATEGORIAS
+       \App\Models\Categorias::create(['id'=> 1, 'name'=>"Componentes de ordenador"]);
+       \App\Models\Categorias::create(['id'=> 2, 'name'=>"Electrónica"]);
+       \App\Models\Categorias::create(['id'=> 3, 'name'=>"Electrodomésticos"]);
         
     }
 }

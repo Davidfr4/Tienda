@@ -48,11 +48,11 @@ class ProductosController extends Controller
         $this->validate($request, [
             "name" => "max:140|unique:productos,name",
             "precio" => "required",
-            "cantidad" => "required",
+            "stock" => "required",
             "fabricante" => "required",
         ]);
         
-        Producto::create($request->only("name","precio","cantidad","fabricante"));
+        Producto::create($request->only("name","precio","stock","fabricante"));
 
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto creado con éxito!"));        
@@ -96,11 +96,11 @@ class ProductosController extends Controller
         $this->validate($request, [
             "name" => "max:140" . $producto->id,
             "precio" => "required",
-            "cantidad" => "required",
+            "stock" => "required",
             "fabricante" => "required",
             
         ]);
-        $producto->fill($request->only("name", "precio", "cantidad", "fabricante"))->save();
+        $producto->fill($request->only("name", "precio", "stock", "fabricante"))->save();
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto actualizado con éxito!")); ;
     }

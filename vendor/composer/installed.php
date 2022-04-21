@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => 'd6449e71d043461986610573ec6b94919f0facad',
+    'reference' => 'e1c6dad171e56ce5fa7bb31c4eac3aa795546578',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -458,12 +458,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'd6449e71d043461986610573ec6b94919f0facad',
+      'reference' => 'e1c6dad171e56ce5fa7bb31c4eac3aa795546578',
     ),
     'laravel/sail' => 
     array (
@@ -1072,6 +1072,15 @@
       array (
       ),
       'reference' => '6a3ed627cee28a552b5176c172ae0abc5eb30925',
+    ),
+    'srmklive/paypal' => 
+    array (
+      'pretty_version' => '3.0.14',
+      'version' => '3.0.14.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c5e5ee440d1a3eecda9ff55d4284eb1941133344',
     ),
     'swiftmailer/swiftmailer' => 
     array (

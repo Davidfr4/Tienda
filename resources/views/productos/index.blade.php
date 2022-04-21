@@ -27,7 +27,7 @@
         <tr>
             <th class="px-4 py-2">{{ __("Nombre") }}</th>
             <th class="px-4 py-2">{{ __("Precio") }}</th>
-            <th class="px-4 py-2">{{ __("Cantidad") }}</th>
+            <th class="px-4 py-2">{{ __("Stock") }}</th>
             <th class="px-4 py-2">{{ __("Fabricante") }}</th>
             <th scope="px-4 py-2">{{ ("Acciones") }}</th>
            
@@ -39,7 +39,7 @@
                 <tr>
                     <td class="border px-4 py-2">{{ $producto->name }}</td>
                     <td class="border px-4 py-2">{{ $producto->precio }}</td>
-                    <td class="border px-4 py-2">{{ $producto->cantidad }}</td>
+                    <td class="border px-4 py-2">{{ $producto->stock }}</td>
                     <td class="border px-4 py-2">{{ $producto->fabricante }}</td>
                     @if(Auth::check() and Auth::user()->hasRoles('admin'))
                         <td class="border px-4 py-2">
