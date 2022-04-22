@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
             $table->integer('precio');
             $table->integer('stock');
             $table->string('fabricante');
+            $table->foreignId('id_categoria')->constrained('categorias');
             $table->timestamps();
         });
     }

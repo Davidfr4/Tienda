@@ -29,6 +29,7 @@
             <th class="px-4 py-2">{{ __("Precio") }}</th>
             <th class="px-4 py-2">{{ __("Stock") }}</th>
             <th class="px-4 py-2">{{ __("Fabricante") }}</th>
+            <th class="px-4 py-2">{{ __("Categoria") }}</th>
             <th scope="px-4 py-2">{{ ("Acciones") }}</th>
            
             
@@ -41,6 +42,7 @@
                     <td class="border px-4 py-2">{{ $producto->precio }}</td>
                     <td class="border px-4 py-2">{{ $producto->stock }}</td>
                     <td class="border px-4 py-2">{{ $producto->fabricante }}</td>
+                    <td class="border px-4 py-2">{{ $producto->id_categoria }}</td>
                     @if(Auth::check() and Auth::user()->hasRoles('admin'))
                         <td class="border px-4 py-2">
                             <a href="{{ route('productos.edit', ['producto' => $producto]) }}" class="text-white text-decoration-none btn btn-primary" style="margin-right: 20px;">{{ __("Editar") }}</a> 

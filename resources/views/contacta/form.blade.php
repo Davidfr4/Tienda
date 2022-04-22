@@ -8,7 +8,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3" for="name">
                 {{ __("Nombre") }}
             </label>
-            <input name="name" value="{{ Auth::user()->name }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+            <input name="name" value="{{ Auth::user()->name }}" readonly="readonly" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
             <p class="text-gray-600 text-xs italic -my-3">{{ __("Nombre del usuario") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -22,7 +22,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3" for="email">
                 {{ __("Email") }}
             </label>
-            <input name="email" value="{{ Auth::user()->email }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+            <input name="email" value="{{ Auth::user()->email }}" readonly="readonly" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
             <p class="text-gray-600 text-xs italic -my-3">{{ __("Email de contacto") }}</p>
             @error("email")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">

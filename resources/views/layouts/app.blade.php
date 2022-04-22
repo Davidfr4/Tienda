@@ -45,9 +45,9 @@
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     @guest
-                        <a class="no-underline hover:underline text-white btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="no-underline hover:underline text-white btn btn-primary" href="{{ route('login') }}">{{ __('Acceder') }}</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:underline btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="no-underline hover:underline btn btn-primary" href="{{ route('register') }}">{{ __('Regístrate') }}</a>
                         @endif
                     @else
                         <span>{{ Auth::user()->name }}</span>
@@ -55,7 +55,7 @@
                         <a href="{{ route('logout') }}"
                            class="btn btn-danger text-white no-underline hover:underline"
                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                document.getElementById('logout-form').submit();">{{ __('Desconectarse') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>

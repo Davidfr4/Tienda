@@ -60,9 +60,30 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="fabricante">
                 {{ __("Fabricante") }}
             </label>
-            <input name="fabricante" value="{{ old('fabricante') ?? $producto->fabricante }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fabricante" type="text" required                                  >
+            <input name="fabricante" value="{{ old('fabricante') ?? $producto->fabricante }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fabricante" type="text" required>
             <p class="text-gray-600 text-xs italic -my-3">{{ __("Fabricante del producto") }}</p>
             @error("Fabricante")
+            <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
+                Debe rellenar este campo
+            </div>
+            @enderror
+        </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-5">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="categoria">
+                {{ __("Categoria") }}
+            </label>
+            
+            <select name="id_categoria" id="categoria" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="{{  old('id_categoria') ?? $producto->id_categoria=1 }}">Componentes de ordenador</option>
+                <option value="{{  old('id_categoria') ?? $producto->id_categoria=2 }}">Electrónica</option>
+                <option value="{{  old('id_categoria') ?? $producto->id_categoria=3 }}">Electrodomésticos</option>
+            </select>
+            <p class="text-gray-600 text-xs italic -my-3">{{ __("Categoría del producto") }}</p>
+
+            @error("Categoria")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 Debe rellenar este campo
             </div>

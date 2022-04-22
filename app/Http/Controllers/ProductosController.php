@@ -50,9 +50,10 @@ class ProductosController extends Controller
             "precio" => "required",
             "stock" => "required",
             "fabricante" => "required",
+            "id_categoria" => "required",
         ]);
         
-        Producto::create($request->only("name","precio","stock","fabricante"));
+        Producto::create($request->only("name","precio","stock","fabricante", "id_categoria"));
 
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto creado con éxito!"));        
@@ -98,9 +99,10 @@ class ProductosController extends Controller
             "precio" => "required",
             "stock" => "required",
             "fabricante" => "required",
+            "id_categoria" => "required",
             
         ]);
-        $producto->fill($request->only("name", "precio", "stock", "fabricante"))->save();
+        $producto->fill($request->only("name", "precio", "stock", "fabricante", "id_categoria"))->save();
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto actualizado con éxito!")); ;
     }
