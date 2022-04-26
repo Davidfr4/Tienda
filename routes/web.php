@@ -7,6 +7,7 @@ use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\Controller;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\PayPalController;
+use \App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('users', UserController::class);
+
 
 // Ruta de productos
 Route::resource("productos", ProductosController::class);
@@ -60,3 +61,9 @@ Route::get('create-transaction', [PayPalController::class, 'createTransaction'])
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+
+
+// Rutas carrito de la compra
+Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart-store', [CartController::class, 'store']);
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');

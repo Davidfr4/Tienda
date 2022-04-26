@@ -10,6 +10,8 @@
         @method("PUT")
     @endisset
     <h1 class="font-semibold py-5 text-blue mb-10 text-white px-5" style="background-color: orange;">{{ $title }} </h1>
+
+    <!-- NOMBRE -->
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3" for="name">
@@ -25,12 +27,13 @@
         </div>
     </div>
 
+    <!-- PRECIO -->
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="precio">
                 {{ __("Precio") }}
             </label>
-            <input name="precio" value="{{ old('precio') ?? $producto->precio }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="precio" type="text" required>
+            <input name="precio" value="{{ old('precio') ?? $producto->precio }}" class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="precio" type="number" min="0" required>
             <p class="text-gray-600 text-xs italic -my-3">{{ __("Precio del producto") }}</p>
             @error("Precio")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -40,6 +43,7 @@
         </div>
     </div>
 
+    <!-- STOCK -->
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="cantidad">
@@ -55,6 +59,7 @@
         </div>
     </div>
 
+    <!-- FABRICANTE -->
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="fabricante">
@@ -70,6 +75,7 @@
         </div>
     </div>
 
+    <!-- CATEGORÍA -->
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="categoria">

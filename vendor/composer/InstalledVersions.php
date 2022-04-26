@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e1c6dad171e56ce5fa7bb31c4eac3aa795546578',
+    'reference' => 'b6d60abe23500770d59711f5ecbf6e19d927c337',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -68,6 +68,15 @@ private static $installed = array (
       array (
         0 => '*',
       ),
+    ),
+    'darryldecode/cart' => 
+    array (
+      'pretty_version' => '4.2.2',
+      'version' => '4.2.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'bc5ff0e1c7d20d621fa63b3218532f2ae7cbf841',
     ),
     'davedevelopment/hamcrest-php' => 
     array (
@@ -487,7 +496,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e1c6dad171e56ce5fa7bb31c4eac3aa795546578',
+      'reference' => 'b6d60abe23500770d59711f5ecbf6e19d927c337',
     ),
     'laravel/sail' => 
     array (

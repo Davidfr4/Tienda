@@ -86,4 +86,14 @@
         </div>
     @endif
 
+    
+    @if($productos->count() < 1)
+        
+        <script>
+            window.location.replace("http://tienda.test/productos");
+        </script>
+        
+    @endif   
+    
+
 @endsection

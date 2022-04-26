@@ -24,9 +24,9 @@
                 @auth
                     <a href="{{ url('/home') }}" class="btn btn-success no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-success no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Login') }}</a>
+                    <a href="{{ route('login') }}" class="btn btn-success no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Acceder') }}</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-success no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a>
+                        <a href="{{ route('register') }}" class="btn btn-success no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Regístrate') }}</a>
                     @endif
                 @endauth
             </div>
