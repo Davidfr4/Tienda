@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@if(!Auth::check() and Auth::user()->hasRoles('admin'))
+@if(Auth::check() and Auth::user()->hasRoles('admin'))
 
     @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10">

@@ -90,9 +90,9 @@
     @if($productos->count() < 1)
         
         <script>
-            window.location.replace("http://tienda.test/productos");
+            window.location.replace("/productos");
         </script>
-        
+
     @endif   
     
 
