@@ -32,6 +32,10 @@ Route::resource('users', UserController::class);
 
 // Ruta de productos
 Route::resource("productos", ProductosController::class);
+Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes');
+Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica');
+Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos');
+
 
 
 // Rutas pestaña contacta

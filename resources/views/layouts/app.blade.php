@@ -10,33 +10,47 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
 
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans" style="background-image: url(https://www.citipa.org/wp-content/uploads/2020/11/keyboard-616492_duotono_recortada-1600x900.jpg); background-repeat: no-repeat; background-size: cover;">
+<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="py-6" style="background-color: orange;">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline px-5">
+                    <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                         {{ ("Inicio") }}
                     </a>
 
                     @auth
-                    
-                        <a href="{{ route('productos.index') }}" class="text-lg font-semibold text-gray-100 no-underline px-5">
-                            {{ __("Productos") }}
 
-                        <a href="{{ route('contacta.index') }}" class="text-lg font-semibold text-gray-100 no-underline px-5">
+                    <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Productos
+                        </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: orange;">
+
+                                <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
+                                <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
+                                <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
+                                <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
+
+                            </ul>
+                        </button>
+
+
+                        <a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                             {{ __("Contacto") }}
 
                         @if(Auth::check() and Auth::user()->hasRoles('admin'))
-                            <a href="{{ route('admin.index') }}" class="text-lg font-semibold text-gray-100 no-underline px-5">
+                            <a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                                 {{ __("Panel administrador") }}
                         @endif
 
