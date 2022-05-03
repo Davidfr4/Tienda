@@ -26,6 +26,7 @@
             @enderror
         </div>
     </div>
+    <!-- FIN NOMBRE -->
 
     <!-- PRECIO -->
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -42,6 +43,7 @@
             @enderror
         </div>
     </div>
+    <!-- FIN PRECIO -->
 
     <!-- STOCK -->
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -58,6 +60,7 @@
             @enderror
         </div>
     </div>
+    <!-- FIN STOCK -->
 
     <!-- FABRICANTE -->
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -74,6 +77,7 @@
             @enderror
         </div>
     </div>
+    <!-- FIN FABRICANTE -->
 
     <!-- CATEGORÍA -->
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -96,6 +100,7 @@
             @enderror
         </div>
     </div>
+    <!-- FIN CATEGORÍA -->
 
     <div class="md:flex md:items-center">
         <div class="md:w-1/3">

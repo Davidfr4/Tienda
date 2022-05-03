@@ -24,7 +24,10 @@
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="py-6" style="background-color: orange;">
+
+            <!-- MENÚ -->
             <div class="container mx-auto flex justify-between items-center px-6">
+
                 <div>
                     <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                         {{ ("Inicio") }}
@@ -35,7 +38,7 @@
                     <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Productos
                         </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: orange;">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
 
                                 <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
                                 <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
@@ -76,6 +79,7 @@
                     @endguest
                 </nav>
             </div>
+            <!-- FIN MENÚ -->
         </header>
         @if(session("success"))
         <div class="container mx-auto mt-5">

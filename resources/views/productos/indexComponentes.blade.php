@@ -2,10 +2,10 @@
 
 @section("content")
 
-    @if(Auth::check() and Auth::user()->hasRoles('admin'))
+@if(Auth::check() and Auth::user()->hasRoles('admin'))
         <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto" style="width: 80%">
             <div class="text-center">
-                <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
+                <h1 class="mb-4">{{ __("Listado de Componentes de ordenador") }}</h1>            
 
                 <a href="{{ route('productos.create') }}" class="bg-success hover:bg-danger text-underline-none text-white text-decoration-none font-semibold hover:text-white py-2 px-4 border border-blue-500  rounded">
                     {{ __("Crear producto") }}
@@ -69,7 +69,7 @@
                 <tr>
                     <td colspan="12">
                         <div class="bg-red-100 text-center border border-red-400 text-red-700 px-4 py-3 rounded relative m-auto" role="alert">
-                            <p><strong class="font-bold text-dark">{{ __("No hay productos") }}</strong></p>
+                            <p><strong class="font-bold text-dark">{{ __("No hay productos de esta categoría (Componentes de ordenador)") }}</strong></p>
                             <span class="block sm:inline text-dark"><strong>{{ __("Todavía no hay nada que mostrar aquí") }}</strong></span>
                         </div>
                     </td>
@@ -87,13 +87,17 @@
     @endif
 
     
-    @if($productos->count() < 1)
-        
-        <script>
-            window.location.replace("/productos");
-        </script>
+    <?php
+    $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-    @endif   
-    
+    if($productos->count() < 1 & $link != 'http://tienda.test/indexComponentes') {
+    ?>   
+        <script>
+            window.location.replace("/indexComponentes");
+        </script>
+    <?php
+    }
+    ?>
+     
 
 @endsection

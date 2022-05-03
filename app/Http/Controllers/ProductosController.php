@@ -26,19 +26,19 @@ class ProductosController extends Controller
     public function indexComponentes()
     {    
         $productos = Producto::with('user')->where('id_categoria', 1)->paginate(10);    
-        return view("productos.index", compact("productos"));
+        return view("productos.indexComponentes", compact("productos"));
     }
 
     public function indexElectronica()
     {    
         $productos = Producto::with('user')->where('id_categoria', 2)->paginate(10);    
-        return view("productos.index", compact("productos"));
+        return view("productos.indexElectronica", compact("productos"));
     }
 
     public function indexElectrodomesticos()
     {    
         $productos = Producto::with('user')->where('id_categoria', 3)->paginate(10);    
-        return view("productos.index", compact("productos"));
+        return view("productos.indexElectrodomesticos", compact("productos"));
     }
 
     /**

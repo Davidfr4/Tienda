@@ -86,14 +86,19 @@
         </div>
     @endif
 
-    
-    @if($productos->count() < 1)
-        
+    <?php
+    $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    if($productos->count() < 1 & $link != 'http://tienda.test/productos') {
+    ?>   
         <script>
             window.location.replace("/productos");
         </script>
+    <?php
+    }
+    ?>
 
-    @endif   
+       
     
 
 @endsection

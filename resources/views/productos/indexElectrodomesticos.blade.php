@@ -17,7 +17,7 @@
     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
         <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto" style="width: 80%">
             <div class="text-center">
-                <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
+                <h1 class="mb-4">{{ __("Listado de Electrodomésticos") }}</h1>            
             </div>
         </div>
     @endif
@@ -69,7 +69,7 @@
                 <tr>
                     <td colspan="12">
                         <div class="bg-red-100 text-center border border-red-400 text-red-700 px-4 py-3 rounded relative m-auto" role="alert">
-                            <p><strong class="font-bold text-dark">{{ __("No hay productos") }}</strong></p>
+                            <p><strong class="font-bold text-dark">{{ __("No hay productos de esta categoría (Electrodomésticos)") }}</strong></p>
                             <span class="block sm:inline text-dark"><strong>{{ __("Todavía no hay nada que mostrar aquí") }}</strong></span>
                         </div>
                     </td>
@@ -87,13 +87,17 @@
     @endif
 
     
-    @if($productos->count() < 1)
-        
-        <script>
-            window.location.replace("/productos");
-        </script>
+    <?php
+    $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-    @endif   
+    if($productos->count() < 1 & $link != 'http://tienda.test/indexElectrodomesticos') {
+    ?>   
+        <script>
+            window.location.replace("/indexElectrodomesticos");
+        </script>
+    <?php
+    }
+    ?>   
     
 
 @endsection
