@@ -8,6 +8,7 @@ use \App\Http\Controllers\Controller;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\PayPalController;
 use \App\Http\Controllers\CartController;
+use \App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->
 Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos');
 
 
+// Rutas de categorias
+Route::resource("categorias", CategoriasController::class);
+
 
 // Rutas pestaña contacta
 Route::get('contacta', function (){
@@ -57,6 +61,7 @@ Route::get('admin',[AdminController::class, 'index'])->name('admin.index');
         Route::get('/index',[AdminController::class, 'index']);
         Route::get('/list_users',[AdminController::class, 'list_users']);
         Route::get('/list_productos',[AdminController::class, 'list_productos']);
+        Route::get('/list_categorias',[AdminController::class, 'list_categorias']);
     });
 
 

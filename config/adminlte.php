@@ -265,6 +265,11 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Listar Categorias',
+            'url'  => 'admin/list_categorias',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text'    => null,
             'icon'    => null,
             'submenu' => [

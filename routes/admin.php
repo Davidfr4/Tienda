@@ -9,6 +9,7 @@
         Route::get('/index',[AdminController::class, 'index']);
         Route::get('/list_users',[AdminController::class, 'list_users']);
         Route::get('/list_productos',[AdminController::class, 'list_productos']);
+        Route::get('/list_categorias',[AdminController::class, 'list_categorias']);
     });
 
     Route::resource('users',UserController::class);
