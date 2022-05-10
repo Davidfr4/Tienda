@@ -48,7 +48,7 @@
             @enderror
         </div>
     </div>
-    <div class="md:flex md:items-center">
+    <div class="md:flex md:items-center col-12 mb-3 mx-5">
         <div class="md:w-1/3">
             <button class="shadow bg-teal-400 mt-5 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
                 {{ 'Enviar mensaje' }}

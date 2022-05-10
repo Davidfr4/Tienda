@@ -257,7 +257,7 @@ return [
         [
             'text' => 'Listar Productos',
             'url'  => 'admin/list_productos',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-thin fa-cart-plus',
         ],
         [
             'text' => 'Listar Usuarios',
@@ -267,7 +267,7 @@ return [
         [
             'text' => 'Listar Categorias',
             'url'  => 'admin/list_categorias',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-solid fa-list',
         ],
         [
             'text'    => null,

@@ -18,7 +18,7 @@ class ProductosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
+    {   
         $productos = Producto::with('user')->paginate(10);    
         return view("productos.index", compact("productos"));
     }
@@ -134,6 +134,6 @@ class ProductosController extends Controller
     public function destroy(Producto $producto)
     {
         $producto->delete();
-        return back()->with("succes",__("¡Producto eliminado!"));
+        return back()->with("success",__("¡Producto eliminado!"));
     }
 }

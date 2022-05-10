@@ -9,17 +9,8 @@
         <!--<a href="{{ route("productos.create") }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             {{ __("Crear proyecto") }}
         </a>-->
-    
-    <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-3">
-        <div class="text-center">   
 
-            <a href="{{ route('categorias.create') }}" class="btn btn-primary hover:bg-success text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500  rounded">
-                {{ __("Crear categoria") }}
-            </a>
-        </div>
-    </div>
-
-<table class="table table-success table-striped" style="width: 100%">
+<table class="table table-success table-striped mt-5" style="width: 100%">
     <thead>
     <tr>
         <th scope="col" class="text-center">{{ ("ID") }}</th>
@@ -36,7 +27,6 @@
                 <td class="text-center">{{ $categoria->name }}</td>
                 <td class="text-center">{{ date_format($categoria->created_at, "d/m/Y") }}</td>
                 <td class="border px-4 py-2 text-center">
-                        <a href="{{ route('categorias.edit', ['categoria' => $categoria]) }}" class="text-white btn btn-primary" style="margin-right: 20px;">{{ __("Editar") }}</a> 
                         <a
                             href="#"
                             class="text-white btn btn-danger"

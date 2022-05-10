@@ -26,6 +26,7 @@
         <th scope="col" class="text-center">{{ ("Precio") }}</th>
         <th scope="col" class="text-center">{{ ("Cantidad") }}</th>
         <th scope="col" class="text-center">{{ ("Fabricante") }}</th>
+        <th scope="col" class="text-center">{{ ("Categoría") }}</th>
         <th scope="col" class="text-center">{{ ("Acciones") }}</th>
 
     </tr>
@@ -37,6 +38,7 @@
                 <td class="text-center">{{ $producto->precio }}</td>
                 <td class="text-center">{{ $producto->stock }}</td>
                 <td class="text-center">{{ $producto->fabricante }}</td>
+                <td class="text-center">{{ $producto->id_categoria }}</td>
                 <td class="border px-4 py-2 text-center">
                         <a href="{{ route('productos.edit', ['producto' => $producto]) }}" class="text-white btn btn-primary" style="margin-right: 20px;">{{ __("Editar") }}</a> 
                         <a
