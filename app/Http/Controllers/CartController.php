@@ -3,95 +3,64 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
-use Cart;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function cartList()
     {
-    return view('cart');
+        $cartItems = \Cart::getContent();
+        // dd($cartItems);
+        return view('cart', compact('cartItems'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function addToCart(Request $request)
     {
-        //
+        \Cart::add([
+            'id' => $request->id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'attributes' => array(
+            // 'image' => $request->image,
+            )
+        ]);
+        session()->flash('success', '¡Producto añadido correctamente!');
+
+        return redirect()->route('cart.list');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function updateCart(Request $request)
     {
-    Cart::add(array(
-        'id' => $request->id?$request->id:'1', // inique row ID
-        'name' => $request->name?$request->name:'example',
-        'price' =>$request->price?$request->price:20.20,
-        'quantity' => $request->quantity?$request->quantity:1,
-        'attributes' => array(
-        'color' => $request->color?$request->color:'green',
-        'size' => $request->size?$request->size:'Big',
-        )
-    )); 
-    return back();
-    }   
+        \Cart::update(
+            $request->id,
+            [
+                'quantity' => [
+                    'relative' => false,
+                    'value' => $request->quantity
+                ],
+            ]
+        );
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        session()->flash('success', '¡Producto actualizado correctamente!');
+
+        return redirect()->route('cart.list');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function removeCart(Request $request)
     {
-        //
+        \Cart::remove($request->id);
+        session()->flash('success', '¡Producto eliminado correctamente!');
+
+        return redirect()->route('cart.list');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function clearAllCart()
     {
-        //
-    }
+        \Cart::clear();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($cart)
-    {
-    Cart::remove($cart);
-    return back();
-    }   
+        session()->flash('success', '¡Carrito vaciado correctamente!');
+
+        return redirect()->route('cart.list');
+    }
 }
