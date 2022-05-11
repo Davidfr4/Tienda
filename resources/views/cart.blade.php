@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 
 @section('content')
@@ -48,7 +48,7 @@
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="number" min=1 name="quantity" value="{{ $item->quantity }}" 
-                                    class="w-6 text-center bg-gray-300" />
+                                    class="w-6 text-center bg-gray-300"/>
                                     <button type="submit" class="px-1 pb-2 ml-1 text-white bg-blue-500">Actualizar</button>
                                     </form>
                                   </div>
@@ -78,7 +78,7 @@
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Vaciar el carrito</button>
+                            <button class="px-6 py-2 text-red-800 bg-red-300 mt-3">Vaciar el carrito</button>
                           </form>
                         </div>
 
