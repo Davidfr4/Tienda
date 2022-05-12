@@ -37,8 +37,8 @@ class PayPalController extends Controller
             "purchase_units" => [
                 0 => [
                     "amount" => [
-                        "currency_code" => "USD",
-                        "value" => "1000.00"
+                        "currency_code" => "EUR",
+                        "value" => "1000"
                     ]
                 ]
             ]

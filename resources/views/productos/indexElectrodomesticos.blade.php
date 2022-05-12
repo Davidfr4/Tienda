@@ -39,7 +39,7 @@
             @forelse($productos as $producto)
                 <tr>
                     <td class="border px-4 py-2">{{ $producto->name }}</td>
-                    <td class="border px-4 py-2">{{ $producto->precio }}</td>
+                    <td class="border px-4 py-2">{{ $producto->price }}€</td>
                     <td class="border px-4 py-2">{{ $producto->stock }}</td>
                     <td class="border px-4 py-2">{{ $producto->fabricante }}</td>
                     <td class="border px-4 py-2">{{ $producto->id_categoria }}</td>
