@@ -7,7 +7,12 @@ use App\Mail\ContactaMail;
 use Illuminate\Support\Facades\Mail;
 
 class ContactaController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('contacta.index');
     }
