@@ -26,17 +26,17 @@
         @auth
 
         <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Productos
-            </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
+                    Productos
+                        </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
 
-                    <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
-                    <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
-                    <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
-                    <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
+                                <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
+                                <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
+                                <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
+                                <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
 
-                </ul>
-            </button>
+                            </ul>
+                        </button>
 
 
             <a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">

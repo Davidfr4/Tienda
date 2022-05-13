@@ -18,13 +18,13 @@
                           <thead>
                             <tr class="h-12 uppercase">
                               <th class="hidden md:table-cell"></th>
-                              <th class="text-left">Nombre</th>
-                              <th class="pl-5 text-left lg:text-right lg:pl-0">
+                              <th class="text-center">Nombre</th>
+                              <th class="pl-5 text-center">
                                 <span class="lg:hidden" title="Quantity">Ctd</span>
                                 <span class="hidden lg:inline">Cantidad</span>
                               </th>
-                              <th class="hidden text-right md:table-cell"> Precio</th>
-                              <th class="hidden text-right md:table-cell"> Eliminar </th>
+                              <th class="hidden text-right md:table-cell text-center"> Precio</th>
+                              <th class="hidden text-right md:table-cell text-center"> Eliminar </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -37,20 +37,20 @@
                               </td>
                               <td>
                                 <a href="#">
-                                  <p class="mb-2 md:ml-4">{{ $item->name }}</p>
+                                  <p class="mb-2 md:ml-4 text-center">{{ $item->name }}</p>
                                   
                                 </a>
                               </td>
-                              <td class="justify-center mt-6 md:justify-end md:flex">
-                                <div class="h-10 w-28">
+                              <td class="justify-center mt-6 md:flex">
+                                <div class="h-10 w-50">
                                   <div class="relative flex flex-row w-full h-8">
                                     
                                     <form action="{{ route('cart.update') }}" method="POST">
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="number" min=1 name="quantity" value="{{ $item->quantity }}" 
-                                    class="w-6 text-center bg-gray-300"/>
-                                    <button type="submit" class="px-1 pb-2 ml-1 text-white bg-blue-500">Actualizar</button>
+                                    class="w-11 text-center bg-white rounded"/>
+                                    <button type="submit" class="px-1 pb-2 ml-1 text-white bg-blue-500 rounded">Actualizar</button>
                                     </form>
                                   </div>
                                 </div>
@@ -85,12 +85,17 @@
                             </form>
                           </div>
 
-                          <div class="col-9">
+                          <div class="col-8">
+                              <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar más productos</a>
+                          </div>
+
+                          <div class="col-2">
                             <form action="{{ route('processTransaction') }}" method="GET">
                               @csrf
-                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Comprar</button>
+                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Pagar</button>
                             </form>
                           </div>
+
                         </div>
 
                       </div>
@@ -125,16 +130,17 @@
                             </form>
                           </div>
 
-                          <div class="col-7">
-                            <form action="{{ route('processTransaction') }}" method="POST">
-                              @csrf
-                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Comprar</button>
-                            </form>
-                          </div>
-
-                          <div class="col-3">
+                          <div class="col-8">
                               <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar productos</a>
                           </div>
+
+                          <div class="col-2">
+                            <form action="{{ route('processTransaction') }}" method="POST">
+                              @csrf
+                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Pagar</button>
+                            </form>
+                          </div>
+                          
                         </div>
 
                       </div>

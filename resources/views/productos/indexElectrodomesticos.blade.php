@@ -3,7 +3,7 @@
 @section("content")
 
     @if(Auth::check() and Auth::user()->hasRoles('admin'))
-        <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto" style="width: 80%">
+        <div class="flex justify-center flex-wrap bg-gray-200 p-4 m-auto rounded" style="width: 80%">
             <div class="text-center">
                 <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
 
@@ -15,40 +15,31 @@
     @endif
 
     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-        <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto" style="width: 80%">
+        <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto rounded" style="width: 80%">
             <div class="text-center">
-                <h1 class="mb-4">{{ __("Listado de Electrodomésticos") }}</h1>            
+                <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
             </div>
         </div>
     @endif
 
-    <table class="border-separate table-success bg-success border-2 text-center border-gray-500 mt-3 m-auto" style="width: 80%">
-        <thead>
-        <tr>
-            <th class="px-4 py-2">{{ __("Nombre") }}</th>
-            <th class="px-4 py-2">{{ __("Precio") }}</th>
-            <th class="px-4 py-2">{{ __("Stock") }}</th>
-            <th class="px-4 py-2">{{ __("Fabricante") }}</th>
-            <th class="px-4 py-2">{{ __("Categoria") }}</th>
-            <th scope="px-4 py-2">{{ ("Acciones") }}</th>
-           
-            
-        </tr>
-        </thead>
-        <tbody>
-            @forelse($productos as $producto)
-                <tr>
-                    <td class="border px-4 py-2">{{ $producto->name }}</td>
-                    <td class="border px-4 py-2">{{ $producto->price }}€</td>
-                    <td class="border px-4 py-2">{{ $producto->stock }}</td>
-                    <td class="border px-4 py-2">{{ $producto->fabricante }}</td>
-                    <td class="border px-4 py-2">{{ $producto->id_categoria }}</td>
-                    @if(Auth::check() and Auth::user()->hasRoles('admin'))
-                        <td class="border px-4 py-2">
-                            <a href="{{ route('productos.edit', ['producto' => $producto]) }}" class="text-white text-decoration-none btn btn-primary" style="margin-right: 20px;">{{ __("Editar") }}</a> 
+   
+    <div class="d-flex justify-content-around col-10 m-auto">
+        <div class="row mt-3" style="width: 100%;">
+            @forelse ($productos as $producto)
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <img class="card-img-top m-auto mt-2" src="https://m.media-amazon.com/images/I/41Dxsm-+jSL._AC_.jpg" style="width: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $producto->name }}</h5>
+                        <p class="card-text mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus magnam quia nesciunt, odit obcaecati dicta molestiae ullam, quam omnis saepe illo veniam placeat ipsum vel iste quas voluptatum.</p>
+                        <h6 class="card-subtitle text-muted mb-2 mt-3">{{ $producto->precio }}€</h6>
+                        
+                        @if(Auth::check() and Auth::user()->hasRoles('admin'))
+
+                            <a href="{{ route('productos.edit', ['producto' => $producto]) }}" class="text-white text-decoration-none btn btn-primary mt-3" style="margin-right: 20px;">{{ __("Editar") }}</a> 
                             <a
                                 href="#"
-                                class="text-white text-decoration-none btn btn-danger"
+                                class="text-white text-decoration-none btn btn-danger mt-3"
                                 onclick="event.preventDefault();
                                     document.getElementById('delete-project-{{ $producto->id }}-form').submit();"
                             >{{ __("Eliminar") }}
@@ -57,27 +48,33 @@
                                 @method("DELETE")
                                 @csrf
                             </form>
-                        </td>
-                    @endif
-                    @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-                        <td class="border px-4 py-2"><a href="https://www.paypal.com/" class="text-white text-decoration-none">Comprar</a></td>
-                    @endif
-                </tr>
-
+                        
+                        @endif
+                        @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" value="{{ $producto->id }}" name="id">
+                                <input type="hidden" value="{{ $producto->name }}" name="name">
+                                <input type="hidden" value="{{ $producto->precio }}" name="price">
+                                <input type="hidden" value="1" name="quantity">
+                                <button class="px-4 py-2 text-white bg-blue-800 rounded mt-3">Añadir al carrito</button>
+                            </form>
+                        @endif
+                    </div>
+                </div>
+		    </div>
             @empty               
 
-                <tr>
-                    <td colspan="12">
-                        <div class="bg-red-100 text-center border border-red-400 text-red-700 px-4 py-3 rounded relative m-auto" role="alert">
-                            <p><strong class="font-bold text-dark">{{ __("No hay productos de esta categoría (Electrodomésticos)") }}</strong></p>
-                            <span class="block sm:inline text-dark"><strong>{{ __("Todavía no hay nada que mostrar aquí") }}</strong></span>
-                        </div>
-                    </td>
-                </tr>
+                <div class="bg-red-100 text-center border border-red-400 text-red-700 px-4 py-3 rounded relative m-auto" role="alert">
+                    <p><strong class="font-bold text-dark">{{ __("No hay productos de esta categoría (Componentes de ordenador)") }}</strong></p>
+                    <span class="block sm:inline text-dark"><strong>{{ __("Todavía no hay nada que mostrar aquí") }}</strong></span>
+                </div>
+                
             @endforelse
-        </tbody>
+        </div>
+    </div>
         
-    </table>
+    
 
     @if($productos->count())
         <div class="mt-3 m-auto" style="width: 80%">
