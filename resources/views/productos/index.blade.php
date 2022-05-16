@@ -3,7 +3,7 @@
 @section("content")
 
     @if(Auth::check() and Auth::user()->hasRoles('admin'))
-        <div class="flex justify-center flex-wrap bg-gray-200 p-4 m-auto rounded" style="width: 80%">
+        <div class="flex justify-center flex-wrap bg-gray-200 p-4 m-auto rounded mt-3" style="width: 80%">
             <div class="text-center">
                 <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
 
@@ -30,9 +30,10 @@
                 <div class="card">
                     <img class="card-img-top m-auto mt-2" src="https://m.media-amazon.com/images/I/41Dxsm-+jSL._AC_.jpg" style="width: 200px;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $producto->name }}</h5>
-                        <p class="card-text mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus magnam quia nesciunt, odit obcaecati dicta molestiae ullam, quam omnis saepe illo veniam placeat ipsum vel iste quas voluptatum.</p>
-                        <h6 class="card-subtitle text-muted mb-2 mt-3">{{ $producto->precio }}€</h6>
+                        <h4 class="card-title">{{ $producto->name }}</h4>
+                        <p class="card-text mt-3">{{ $producto->descripcion }}</p>
+                        <h5 class="card-subtitle text-muted mb-2 mt-3">{{ $producto->precio }}€</h5>
+                        <h6 class="card-subtitle mb-2 mt-3">Unidades restantes: {{ $producto->stock }}</h6>
                         
                         @if(Auth::check() and Auth::user()->hasRoles('admin'))
 
