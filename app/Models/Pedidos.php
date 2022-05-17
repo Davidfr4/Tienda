@@ -12,7 +12,6 @@ class Pedidos extends Model
     protected $fillable = [
         'cantidad_productos',
         'precio_total',
-        'fecha_pedido',
         'direccion_envio',
         'id_usuario',
     ];

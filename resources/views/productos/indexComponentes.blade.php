@@ -30,7 +30,7 @@
                 <div class="card" style="height: 100%;">
                     <img class="card-img-top m-auto mt-2" src="https://m.media-amazon.com/images/I/41Dxsm-+jSL._AC_.jpg" style="width: 200px;">
                     <div class="card-body">
-                        <h4 class="card-title">{{ $producto->name }}</h4>
+                        <h4 class="card-title text-center">{{ $producto->name }}</h4>
                         <p class="card-text mt-3" style="height: 50px;">{{ $producto->descripcion }}</p>
                         <h5 class="card-subtitle text-muted mb-2 mt-3">{{ $producto->precio }}€</h5>
                         <h6 class="card-subtitle mb-2 mt-3">Unidades restantes: {{ $producto->stock }}</h6>
