@@ -30,17 +30,17 @@
                           <tbody>
                               @foreach ($cartItems as $item)
                             <tr>
+
                               <td class="hidden pb-4 md:table-cell">
                                 <a href="#">
                                   <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
                                 </a>
                               </td>
+
                               <td>
-                                <a href="#">
-                                  <p class="mb-2 md:ml-4 text-center">{{ $item->name }}</p>
-                                  
-                                </a>
+                                <p class="mb-2 md:ml-4 text-center">{{ $item->name }}</p>
                               </td>
+
                               <td class="justify-center mt-6 md:flex">
                                 <div class="h-10 w-50">
                                   <div class="relative flex flex-row w-full h-8">
@@ -55,19 +55,26 @@
                                   </div>
                                 </div>
                               </td>
-                              <td class="hidden text-right md:table-cell">
+
+                              <td class="hidden text-center md:table-cell">
                                 <span class="text-sm font-medium lg:text-base">
                                     ${{ $item->price }}
                                 </span>
                               </td>
-                              <td class="hidden text-right md:table-cell">
+
+                              <td class="hidden text-center md:table-cell">
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                   @csrf
                                   <input type="hidden" value="{{ $item->id }}" name="id">
-                                  <button class="px-4 py-2 text-white bg-red-600">x</button>
-                              </form>
-                                
+                                  <button class="text-white ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-square bg-red-600 rounded" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> 
+                                  </button>
+                                </form>
                               </td>
+
                             </tr>
                             @endforeach
                              
@@ -92,7 +99,7 @@
                           <div class="col-2">
                             <form action="{{ route('processTransaction') }}" method="GET">
                               @csrf
-                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Pagar</button>
+                              <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Pagar</button>
                             </form>
                           </div>
 
@@ -137,7 +144,7 @@
                           <div class="col-2">
                             <form action="{{ route('processTransaction') }}" method="POST">
                               @csrf
-                              <button id="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Pagar</button>
+                              <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Pagar</button>
                             </form>
                           </div>
                           

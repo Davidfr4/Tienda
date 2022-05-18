@@ -38,7 +38,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "EUR",
-                        "value" => "1000"
+                        "value" =>$request->input('comprar')
                     ]
                 ]
             ]
@@ -77,8 +77,9 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            app(CartController::class)->clearAllCart();
             return redirect()
-                ->route('createTransaction')
+                ->route('cart.list')
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
