@@ -24,10 +24,10 @@ class CartController extends Controller
         \Cart::add([
             'id' => $request->id,
             'name' => $request->name,
-            'price' => $request->price,
+            'price' => $request->precio,
             'quantity' => $request->quantity,
             'attributes' => array(
-            // 'image' => $request->image,
+                'image' => $request->image,
             )
         ]);
         session()->flash('success', '¡Producto añadido correctamente!');

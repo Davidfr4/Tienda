@@ -30,7 +30,7 @@
             <div class="container mx-auto flex justify-between items-center px-6">
 
                 <div>
-                    <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
+                    <a href="{{ url('/home') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                         {{ ("Inicio") }}
                     </a>
 
