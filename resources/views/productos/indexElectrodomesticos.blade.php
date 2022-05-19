@@ -5,7 +5,7 @@
     @if(Auth::check() and Auth::user()->hasRoles('admin'))
         <div class="flex justify-center flex-wrap bg-gray-200 p-4 m-auto rounded mt-3" style="width: 80%">
             <div class="text-center">
-                <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
+                <h1 class="mb-4">{{ __("Listado de electrodomésticos") }}</h1>            
 
                 <a href="{{ route('productos.create') }}" class="bg-success hover:bg-danger text-underline-none text-white text-decoration-none font-semibold hover:text-white py-2 px-4 border border-blue-500  rounded">
                     {{ __("Crear producto") }}
@@ -17,7 +17,7 @@
     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
         <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto rounded" style="width: 80%">
             <div class="text-center">
-                <h1 class="mb-4">{{ __("Listado de productos") }}</h1>            
+                <h1 class="mb-4">{{ __("Listado de electrodomésticos") }}</h1>            
             </div>
         </div>
     @endif
@@ -26,9 +26,9 @@
     <div class="d-flex justify-content-around col-10 m-auto">
         <div class="row mt-3" style="width: 100%;">
             @forelse ($productos as $producto)
-            <div class="col-4 mt-3">
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
                 <div class="card" style="height: 100%;">
-                    <img class="card-img-top m-auto mt-2" src="https://m.media-amazon.com/images/I/41Dxsm-+jSL._AC_.jpg" style="width: 200px;">
+                    <img class="card-img-top m-auto mt-2" src="/images/{{ $producto->imagen }}" style="width: 300px; height: 300px">
                     <div class="card-body">
                         <h4 class="card-title text-center">{{ $producto->name }}</h4>
                         <p class="card-text mt-3" style="height: 50px;">{{ $producto->descripcion }}</p>

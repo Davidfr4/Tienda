@@ -21,6 +21,7 @@ class Producto extends Model
         'descripcion',
         'fabricante',
         'id_categoria',
+        'imagen',
     ];
 
     public function user(){

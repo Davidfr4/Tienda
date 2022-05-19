@@ -80,7 +80,7 @@ class PayPalController extends Controller
             app(CartController::class)->clearAllCart();
             return redirect()
                 ->route('cart.list')
-                ->with('success', 'Transaction complete.');
+                ->with('success', 'Pago completado.');
         } else {
             return redirect()
                 ->route('createTransaction')

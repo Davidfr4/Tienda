@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->string('descripcion');
             $table->string('fabricante');
             $table->foreignId('id_categoria')->constrained('categorias');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

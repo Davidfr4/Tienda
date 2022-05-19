@@ -70,9 +70,23 @@ class ProductosController extends Controller
             "descripcion" => "required",
             "fabricante" => "required",
             "id_categoria" => "required",
+            "imagen" => "required",
         ]);
+
+        $file = $request->file('imagen');
         
-        Producto::create($request->only("name","precio","stock","descripcion","fabricante","id_categoria"));
+        Producto::create(
+            array_merge(
+                $request->only("name","precio","stock","descripcion","fabricante","id_categoria"),
+                [
+                    "imagen" => $file->storeAs('', date('YmdHi').$file->getClientOriginalName(), 'images'),
+                ]
+            )
+        );
+
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $file-> move(public_path('/images'), $filename);
+        $data['image']= $filename;
 
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto creado con éxito!"));        
@@ -122,7 +136,19 @@ class ProductosController extends Controller
             "id_categoria" => "required",
             
         ]);
-        $producto->fill($request->only("name", "precio", "stock", "descripcion", "fabricante", "id_categoria"))->save();
+        $producto->fill($request->only("name", "precio", "stock", "descripcion", "fabricante", "id_categoria"));
+
+        $file = $request->file('imagen');
+
+        if($request->hasFile("imagen")) {
+            $producto->imagen = $request->file('imagen')->storeAs('', date('YmdHi').$request->file('imagen')->getClientOriginalName(), 'images');
+        }
+
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $file-> move(public_path('/images'), $filename);
+        $data['image']= $filename;
+
+        $producto->save();
         return redirect(route("productos.index"))
             ->with("success", __("¡Producto actualizado con éxito!")); ;
     }

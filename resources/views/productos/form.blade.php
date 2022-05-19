@@ -4,7 +4,7 @@
     </div>
 </div>-->
 
-<form class="w-full max-w-lg border-4 bg-white" method="POST" action="{{ $route }}">
+<form class="w-full max-w-lg border-4 bg-white" method="POST" action="{{ $route }}" enctype="multipart/form-data">
     @csrf
     @isset($update)
         @method("PUT")
@@ -113,6 +113,31 @@
         </div>
     </div>
     <!-- FIN CATEGORÍA -->
+
+    <!-- IMAGEN -->
+
+    <div class="flex flex-wrap -mx-3 mt-4 mb-1">
+        <div class="w-full px-5">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="categoria">
+                {{ __("Imagen") }}
+            </label>
+            
+            @if (isset($producto->imagen))
+                <img src="{{asset('images/'.$producto->imagen)}}" class="m-auto" style="width: 300px; height: 300px">
+            @endif
+
+            <input type="file" name="imagen" class="form-control" placeholder="Imagen">
+            <p class="text-gray-600 text-xs italic mt-3 -my-3">{{ __("Imagen del producto") }}</p>
+
+            @error("Imagen")
+            <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
+                Debe rellenar este campo
+            </div>
+            @enderror
+        </div>
+    </div>
+
+    <!-- FIN IMAGEN -->
 
     <div class="md:flex md:items-center mt-3 mb-3 mx-5">
         <div class="md:w-1/3">
