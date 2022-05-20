@@ -32,6 +32,7 @@ class AdminController extends Controller
     public function list_productos()
     {        
         $productos = producto::with("user")->paginate(10);
+        $categorias = categorias::all();
         return view("admin.list_productos", compact("productos"));
         
     }

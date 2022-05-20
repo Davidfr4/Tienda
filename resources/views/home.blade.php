@@ -18,7 +18,7 @@
 
             <div class="w-full p-4">
                 <p class="text-gray-700">
-                    Gracias por loguearte en nuestra tienda, <b>{{ Auth::user()->name }}</b>
+                    Gracias por loguearte en nuestra tienda
                 </p>
             </div>
         </section>

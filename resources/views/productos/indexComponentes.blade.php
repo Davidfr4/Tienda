@@ -12,10 +12,8 @@
                 </a>
             </div>
         </div>
-    @endif
-
-    @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-        <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5 m-auto rounded" style="width: 80%">
+    @else
+        <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-3 m-auto rounded" style="width: 80%">
             <div class="text-center">
                 <h1 class="mb-4">{{ __("Listado de componentes") }}</h1>            
             </div>

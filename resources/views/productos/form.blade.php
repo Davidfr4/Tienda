@@ -123,7 +123,7 @@
             </label>
             
             @if (isset($producto->imagen))
-                <img src="{{asset('images/'.$producto->imagen)}}" class="m-auto" style="width: 300px; height: 300px">
+                <img src="{{asset('images/'.$producto->imagen)}}" class="m-auto mb-3" style="width: 300px; height: 300px">
             @endif
 
             <input type="file" name="imagen" class="form-control" placeholder="Imagen">
