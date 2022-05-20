@@ -12,3 +12,7 @@
 footer>div>a {
     width: 75px;
 }
+
+.altura {
+    height: 100vh;
+}
