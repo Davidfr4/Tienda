@@ -26,7 +26,7 @@
             @forelse ($productos as $producto)
             <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
                 <div class="card" style="height: 100%;">
-                    <img class="card-img-top m-auto mt-2" src="/images/{{ $producto->imagen }}" style="width: 300px; height: 300px">
+                <img class="card-img-top m-auto mt-2" data-bs-toggle="modal" data-bs-target="#mi-modal-{{ $producto->id }}" src="/images/{{ $producto->imagen }}" style="width: 300px; height: 300px">
                     <div class="card-body">
                         <h4 class="card-title text-center">{{ $producto->name }}</h4>
                         <p class="card-text mt-3" style="height: 50px;">{{ $producto->descripcion }}</p>
@@ -61,6 +61,33 @@
                         @endif
                     </div>
                 </div>
+
+                <div
+					class="modal fade"
+					id="mi-modal-{{ $producto->id }}"
+					tabindex="-1"
+					aria-hidden="true"
+					aria-labelledby="label-modal-{{ $producto->id }}"
+				>
+					<!-- Caja de dialogo -->
+					<div class="modal-dialog">
+						<!-- Contenido de la caja -->
+						<div class="modal-content">
+							<!-- Encabezado de la caja -->
+							<div class="modal-header">
+								<h5 class="modal-title">{{ $producto->name }}</h5>
+								<button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+
+							<!-- Cuerpo de la caja -->
+							<div class="modal-body">
+                            <img class="card-img-top m-auto mt-2" src="/images/{{ $producto->imagen }}" style="width: 500px; height: 500px">
+							</div>
+
+						</div>
+					</div>
+				</div>
+
 		    </div>
             @empty               
 
