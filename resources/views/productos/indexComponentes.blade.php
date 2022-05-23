@@ -101,7 +101,7 @@
     </div>
         
     
-
+    <!-- PAGINADOR -->
     @if($productos->count())
         <div class="mt-3 m-auto" style="width: 80%">
             {{ $productos->links() }}
@@ -109,7 +109,7 @@
         </div>
     @endif
 
-    
+    <!-- SI LA PÁGINA TIENE 0 PRODUCTOS Y NO ES EL INDEX, REDIRIGE A LA PÁGINA PRINCIPAL -->
     <?php
     $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

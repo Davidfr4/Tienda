@@ -119,11 +119,11 @@
 
     <div class="flex flex-wrap -mx-3 mt-4 mb-1">
         <div class="w-full px-5">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="categoria">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="imagen">
                 {{ __("Imagen") }}
             </label>
 
-            <input type="file" name="imagen" class="form-control" placeholder="Imagen">
+            <input type="file" name="imagen" class="form-control" placeholder="Imagen" required>
             <p class="text-gray-600 text-xs italic mt-3 -my-3">{{ __("Imagen del producto") }}</p>
 
             @error("Imagen")

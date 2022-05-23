@@ -2,6 +2,7 @@
 
 @section('content')
       
+      <!-- OPCIÓN SI EL CARRITO NO ESTÁ VACIO -->
       @if(Cart::getTotalQuantity() > 0) 
           <main class="my-8">
             <div class="container px-6 mx-auto">
@@ -111,6 +112,7 @@
             </div>
           </main>
       @else
+        <!-- OPCIÓN SI EL CARRITO ESTÁ VACIO -->
         <main class="my-8">
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">
