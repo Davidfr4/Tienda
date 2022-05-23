@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
 
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-100 antialiased leading-none font-sans">
     <div id="app" class="pb-3 altura">
         <header class="py-6" style="background-color: orange;">
 
@@ -30,7 +30,7 @@
             <div class="container mx-auto flex justify-between items-center px-6">
 
                 <div>
-                    <a href="{{ url('/home') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
+                    <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                         {{ ("Inicio") }}
                     </a>
 
@@ -123,11 +123,10 @@
 
         <div class="col-12 mt-4 m-auto justify-content-center">
 
-            <p class="mt-3 text-center" style="font-size: 22px;">Tecnologías-Naranco ©</p>
+            <p class="mt-3 text-center mr-5" style="font-size: 22px;">Tecnologías-Naranco ©</p>
 
         </div>
         
-
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

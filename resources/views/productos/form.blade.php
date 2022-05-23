@@ -4,6 +4,7 @@
     </div>
 </div>-->
 
+
 <form class="w-full max-w-lg border-4 bg-white" method="POST" action="{{ $route }}" enctype="multipart/form-data">
     @csrf
     @isset($update)
@@ -121,10 +122,6 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="categoria">
                 {{ __("Imagen") }}
             </label>
-            
-            @if (isset($producto->imagen))
-                <img src="{{asset('images/'.$producto->imagen)}}" class="m-auto mb-3" style="width: 300px; height: 300px">
-            @endif
 
             <input type="file" name="imagen" class="form-control" placeholder="Imagen">
             <p class="text-gray-600 text-xs italic mt-3 -my-3">{{ __("Imagen del producto") }}</p>
