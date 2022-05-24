@@ -10,18 +10,83 @@
             </div>
         @endif
 
-        <section class="flex flex-col break-words bg-white sm:border-1 mt-5 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+        
 
-            <header class="font-semibold bg-gray-200 text-gray-700 px-6 sm:py-6 sm:px-8 sm:rounded-t-md" style="background-color: orange;">
-                ¡Bienvenido/a!
-            </header>
+        <div class="row mt-5">
+		<div class="col">
+			<div class="carousel slide carousel-fade bg-gray-200" id="mi-carousel" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="3000">
+                    <a href="/productos"><img class="img-fluid" src="/images/carrusel1.jpg"></a>
+					</div>
+					<div class="carousel-item" data-bs-interval="3000">
+                    <a href="/productos"><img class="img-fluid" src="/images/carrusel2.jpg"></a>
+					</div>
+					<div class="carousel-item" data-bs-interval="3000">
+                    <a href="/productos"><img class="img-fluid" src="/images/carrusel3.jpg"></a>
+					</div>
+                    <div class="carousel-item" data-bs-interval="3000">
+						<a href="/productos"><img class="img-fluid" src="/images/carrusel4.jpg"></a>
+					</div>
+				</div>
+				<!-- Controles -->
+				<button 
+					class="carousel-control-prev"
+					type="button"
+					data-bs-target="#mi-carousel"
+					data-bs-slide="prev"
+				>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Anterior</span>
+				</button>
 
-            <div class="w-full p-4">
-                <p class="text-gray-700">
-                    Gracias por loguearte en nuestra tienda
-                </p>
-            </div>
-        </section>
+				<button 
+					class="carousel-control-next"
+					type="button"
+					data-bs-target="#mi-carousel"
+					data-bs-slide="next"
+				>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Siguiente</span>
+				</button>
+
+				<!-- Indicadores -->
+				<div class="carousel-indicators">
+					<button 
+						type="button"
+						class="active"
+						data-bs-target="#mi-carousel"
+						data-bs-slide-to="0"
+						aria-label="Slide 1"
+					></button>
+					<button 
+						type="button"
+						class=""
+						data-bs-target="#mi-carousel"
+						data-bs-slide-to="1"
+						aria-label="Slide 2"
+					></button>
+					<button 
+						type="button"
+						class=""
+						data-bs-target="#mi-carousel"
+						data-bs-slide-to="2"
+						aria-label="Slide 3"
+					></button>
+                    <button 
+						type="button"
+						class=""
+						data-bs-target="#mi-carousel"
+						data-bs-slide-to="3"
+						aria-label="Slide 4"
+					></button>
+				</div>
+
+			</div>
+		</div>
+	</div>    
+
+        
     </div>
 </main>
 @endsection
