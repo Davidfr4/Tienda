@@ -12,6 +12,8 @@
         Route::get('/list_categorias',[AdminController::class, 'list_categorias']);
     });
 
+    Route::get('/create', [AdminController::class, 'create']);
+
     Route::resource('users',UserController::class);
 
 ?>

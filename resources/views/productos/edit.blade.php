@@ -1,4 +1,4 @@
-@extends("layouts.productos")
+@extends("admin.index")
 
 @section("content")
     @if(Auth::check() and Auth::user()->hasRoles('admin'))
@@ -13,7 +13,7 @@
             <header class="font-semibold bg-red-600 text-gray-700 px-6 sm:py-6 sm:px-8 sm:rounded-md text-white text-center">
                 Usted no tiene acceso a está página.
             </header>
-            <a href="/home" class="btn btn-success col-3 m-auto px-6 py-2 text-white mt-5">Volver a inicio.</a>
+            <a href="/" class="btn btn-success col-3 m-auto px-6 py-2 text-white mt-5">Volver a inicio.</a>
         </section>
         </div>
     @endif

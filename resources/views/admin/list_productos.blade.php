@@ -19,6 +19,14 @@
         </div>
     </div>
 
+    @if(session("success"))
+        <script>
+
+            alert("{{ session('success') }}")
+
+        </script>
+    @endif
+
 <table class="table table-success table-striped" style="width: 100%">
     <thead>
     <tr>

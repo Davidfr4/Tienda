@@ -104,7 +104,6 @@
                 <option value="{{  old('id_categoria') ?? $producto->id_categoria=2 }}">Electrónica</option>
                 <option value="{{  old('id_categoria') ?? $producto->id_categoria=3 }}">Electrodomésticos</option>
             </select>
-            <p class="text-gray-600 text-xs italic -my-3">{{ __("Categoría del producto") }}</p>
 
             @error("Categoria")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -116,15 +115,13 @@
     <!-- FIN CATEGORÍA -->
 
     <!-- IMAGEN -->
-
-    <div class="flex flex-wrap -mx-3 mt-4 mb-1">
+    <div class="flex flex-wrap -mx-3 mt-2 mb-1">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3 mt-3" for="imagen">
                 {{ __("Imagen") }}
             </label>
 
             <input type="file" name="imagen" class="form-control" placeholder="Imagen" required>
-            <p class="text-gray-600 text-xs italic mt-3 -my-3">{{ __("Imagen del producto") }}</p>
 
             @error("Imagen")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">

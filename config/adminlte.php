@@ -256,7 +256,7 @@ return [
         ['header' => 'Proyectos'],
         [
             'text' => 'Listar Productos',
-            'url'  => 'admin/list_productos',
+            'url'  => 'admin/',
             'icon' => 'fas fa-thin fa-cart-plus',
         ],
         [

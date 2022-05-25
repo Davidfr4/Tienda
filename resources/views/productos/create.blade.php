@@ -1,4 +1,4 @@
-@extends("layouts.productos")
+@extends("admin.index")
 
 @section("content")
     @if(Auth::check() and Auth::user()->hasRoles('admin'))

@@ -18,7 +18,8 @@ class AdminController extends Controller
 
     
     public function index() {
-        return view('admin.index');
+        $productos = producto::with("user")->paginate(10);
+        return view('admin.list_productos', compact("productos"));
     }
 
     public function list_users()
@@ -29,19 +30,11 @@ class AdminController extends Controller
         
     }
 
-    public function list_productos()
-    {        
-        $productos = producto::with("user")->paginate(10);
-        $categorias = categorias::all();
-        return view("admin.list_productos", compact("productos"));
-        
-    }
-
     public function list_categorias()
     {        
         $categorias = categorias::paginate(10);
         return view("admin.list_categorias", compact("categorias"));
         
     }
-
+ 
 }

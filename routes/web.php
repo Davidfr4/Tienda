@@ -8,7 +8,6 @@ use \App\Http\Controllers\Controller;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\PayPalController;
 use \App\Http\Controllers\CartController;
-use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\CategoriasController;
 
 /*
@@ -57,7 +56,6 @@ Route::post('contacta',[ContactaController::class,'store'])->name('contacta.stor
 // Rutas panel de administrador
 Route::get('admin',[AdminController::class, 'index'])->name('admin.index');
 
-
     Route::prefix('admin')->group(function () {
         Route::get('/index',[AdminController::class, 'index']);
         Route::get('/list_users',[AdminController::class, 'list_users']);
@@ -74,7 +72,6 @@ Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])
 
 
 // Rutas carrito de la compra
-Route::get('/products', [ProductController::class, 'productList'])->name('products.list');
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');

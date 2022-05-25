@@ -85,7 +85,7 @@ class ProductosController extends Controller
         $file-> move(public_path('/images'), $filename);
         $data['image']= $filename;
 
-        return redirect(route("productos.index"))
+        return redirect(route("admin.index"))
             ->with("success", __("¡Producto creado con éxito!"));        
     }
 
@@ -146,7 +146,7 @@ class ProductosController extends Controller
         $data['image']= $filename;
 
         $producto->save();
-        return redirect(route("productos.index"))
+        return redirect(route("admin.index"))
             ->with("success", __("¡Producto actualizado con éxito!")); ;
     }
 

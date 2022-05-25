@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 <main class="sm:container sm:mx-auto sm:mt-10">
     <div class="w-full sm:px-6">
 
@@ -10,20 +14,25 @@
             </div>
         @endif
 
-        
+        <div class="bg-gray-200 p-5 rounded">
 
+            <h1 class="text-center" style="font-family: 'Permanent Marker', cursive; font-size: 50px;">TECNOLOGÍAS-NARANCO</h1>
+
+        </div>
+        
+        <!-- CARRUSEL -->
         <div class="row mt-5">
 		<div class="col">
-			<div class="carousel slide carousel-fade bg-gray-200" id="mi-carousel" data-bs-ride="carousel">
+			<div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active" data-bs-interval="3000">
-                    <a href="/productos"><img class="img-fluid" src="/images/carrusel1.jpg"></a>
+                        <a href="/productos"><img class="img-fluid" src="/images/carrusel1.jpg"></a>
 					</div>
 					<div class="carousel-item" data-bs-interval="3000">
-                    <a href="/productos"><img class="img-fluid" src="/images/carrusel2.jpg"></a>
+                        <a href="/productos"><img class="img-fluid" src="/images/carrusel2.jpg"></a>
 					</div>
 					<div class="carousel-item" data-bs-interval="3000">
-                    <a href="/productos"><img class="img-fluid" src="/images/carrusel3.jpg"></a>
+                        <a href="/productos"><img class="img-fluid" src="/images/carrusel3.jpg"></a>
 					</div>
                     <div class="carousel-item" data-bs-interval="3000">
 						<a href="/productos"><img class="img-fluid" src="/images/carrusel4.jpg"></a>
