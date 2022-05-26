@@ -86,18 +86,18 @@
                         </div>
 
                         <div class="row mt-3">
-                          <div class="col-2">
+                          <div class="col-lg-2 col-md-3 col-sm-4">
                             <form action="{{ route('cart.clear') }}" method="POST">
                               @csrf
                               <button id="vaciar" class="btn btn-danger px-6 py-2 text-red-800 mt-3">Vaciar el carrito</button>
                             </form>
                           </div>
 
-                          <div class="col-8">
+                          <div class="col-lg-8 col-md-7 col-sm-4">
                               <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar más productos</a>
                           </div>
 
-                          <div class="col-2">
+                          <div class="col-lg-2 col-md-2 col-sm-4">
                             <form action="{{ route('processTransaction') }}" method="GET">
                               @csrf
                               <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Pagar</button>
@@ -128,24 +128,24 @@
                       <div class="flex-1">
                         
                       <section class="flex flex-col break-words bg-white sm:border-1 mt-5 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-                        <header class="font-semibold bg-red-600 text-gray-700 px-6 sm:py-6 sm:px-8 sm:rounded-md text-white text-center">
+                        <header class="font-semibold bg-red-600 text-gray-700 px-6 py-6 rounded text-white text-center">
                             Todavía no hay productos en el carrito.
                         </header>
                       </section>
 
                         <div class="row mt-3">
-                          <div class="col-2">
+                          <div class="col-lg-2 col-md-3 col-sm-4">
                             <form action="{{ route('cart.clear') }}" method="POST">
                               @csrf
                               <button id="vaciar" class="btn btn-danger px-6 py-2 text-red-800 mt-3" disabled>Vaciar el carrito</button>
                             </form>
                           </div>
 
-                          <div class="col-8">
+                          <div class="col-lg-8 col-md-7 col-sm-4">
                               <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar productos</a>
                           </div>
 
-                          <div class="col-2">
+                          <div class="col-lg-2 col-md-2 col-sm-4">
                             <form action="{{ route('processTransaction') }}" method="POST">
                               @csrf
                               <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Pagar</button>

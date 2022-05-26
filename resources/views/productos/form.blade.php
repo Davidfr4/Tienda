@@ -12,7 +12,7 @@
 
 </style>
 
-<form class="bg-white col-4 m-auto p-3" method="POST" action="{{ $route }}" enctype="multipart/form-data">
+<form class="bg-white col-lg-4 col-md-6 col-sm-12 m-auto p-3" method="POST" action="{{ $route }}" enctype="multipart/form-data">
     @csrf
     @isset($update)
         @method("PUT")
