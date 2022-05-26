@@ -1,8 +1,14 @@
 #app, body {
-    background-image: url('https://www.citipa.org/wp-content/uploads/2020/11/keyboard-616492_duotono_recortada-1600x900.jpg');
+    background-image: url('../images/fondo.jpg');
     background-repeat: no-repeat; 
     background-size: cover;
     
+}
+
+#titulo {
+    background-image: url('../images/fondoTitulo.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
 }
 
 .menuGeneral {

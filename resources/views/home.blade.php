@@ -14,9 +14,9 @@
             </div>
         @endif
 
-        <div class="bg-gray-200 p-5 rounded">
+        <div id="titulo" class="bg-gray-200 p-5 rounded">
 
-            <h1 class="text-center" style="font-family: 'Permanent Marker', cursive; font-size: 50px;">TECNOLOGÍAS-NARANCO</h1>
+            <h1 class="text-center text-white" style="font-family: 'Permanent Marker', cursive; font-size: 50px;">TECNOLOGÍAS-NARANCO</h1>
 
         </div>
         

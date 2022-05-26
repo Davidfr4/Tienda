@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'Tienda',
-    'title_prefix' => 'Ángel',
-    'title_postfix' => 'Proyecto_Angel',
+    'title' => 'Panel de administrador',
+    'title_prefix' => '',
+    'title_postfix' => '',
 
     /*
     |--------------------------------------------------------------------------
