@@ -29,38 +29,67 @@
         <!-- MENÚ -->
         <div class="container mx-auto flex justify-between items-center px-6">
 
-            <div>
+        <div class="d-flex d-lg-none">
+            
+                <button class="btn font-semibold menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="menu" style="background-color: #FF7A33;">
+                    <li><a href="/" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">Inicio</a></li>
+                    <li><a href="{{ route('productos.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Todos los productos") }}</a></li>
+                    <li><a href="{{ route('productos.indexComponentes') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Componentes de ordenador") }}</a></li>
+                    <li><a href="{{ route('productos.indexElectronica') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Productos de electrónica") }}</a></li>
+                    <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Electrodomésticos") }}</a></li>
+
+                    @auth
+                    <li><a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Contacto") }}</a></li>
+                        
+
+                    @if(Auth::check() and Auth::user()->hasRoles('admin'))
+                    <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
+                    @endif
+
+
+                    @endauth
+                </ul>
+        </div>
+
+            <div class="d-none d-lg-block">
                 <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
-                    {{ ("Inicio") }}
+                            {{ ("Inicio") }}
                 </a>
 
 
                 <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Productos
-                    </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
+                </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
 
-                            <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
-                            <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
-                            <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
-                            <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
+                        <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
+                        <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
+                        <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
+                        <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
 
-                        </ul>
-                    </button>
+                    </ul>
 
                 @auth
                     <a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                         {{ __("Contacto") }}
+                    </a>
 
                     @if(Auth::check() and Auth::user()->hasRoles('admin'))
                         <a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
                             {{ __("Panel administrador") }}
+                        </a>
                     @endif
 
 
                 @endauth
 
             </div>
+            
 
             <!-- LOGIN, REGISTER Y LOGOUT -->
             <nav class="space-x-4 text-gray-300 text-sm sm:text-base">

@@ -6,7 +6,7 @@
     <div class="bg-gray-100 col-10 m-auto">
         <div class="p-4 m-auto mt-3">
             <div class="text-center">
-                <h1 style="font-family: 'Permanent Marker', cursive; font-size: 50px;">{{ __("Página de electrodomésticos") }}</h1>            
+                <h1 style="font-family: 'Permanent Marker', cursive; font-size: 50px;">{{ __("Electrodomésticos") }}</h1>            
 
             </div>
         </div>
