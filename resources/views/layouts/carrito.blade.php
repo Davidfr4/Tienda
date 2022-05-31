@@ -29,8 +29,8 @@
         <!-- MENÚ -->
         <div class="container mx-auto flex justify-between items-center px-6">
 
-        <div class="d-flex d-lg-none">
-            
+            <div class="d-flex d-lg-none">
+                
                 <button class="btn font-semibold menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -44,29 +44,27 @@
                     <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Electrodomésticos") }}</a></li>
 
                     @auth
-                    <li><a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Contacto") }}</a></li>
-                        
+                    <li><a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Contacto") }}</a></li>         
 
                     @if(Auth::check() and Auth::user()->hasRoles('admin'))
-                    <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
+                        <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
                     @endif
-                    
+
                     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
                         <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
                     @endif
 
                     @endauth
                 </ul>
-        </div>
+            </div>
 
             <div class="d-none d-lg-block">
                 <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
-                            {{ ("Inicio") }}
+                    {{ ("Inicio") }}
                 </a>
 
-
                 <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Productos
+                    Productos
                 </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
 
@@ -89,15 +87,14 @@
                     @endif
 
                     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-                    <li><a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a></li>
+                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
                     @endif
 
                 @endauth
 
             </div>
-            
 
-            <!-- LOGIN, REGISTER Y LOGOUT -->
+                <!-- LOGIN, REGISTER Y LOGOUT -->
             <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                 @guest
                     <a class="no-underline hover:underline text-white btn btn-primary" href="{{ route('login') }}">{{ __('Acceder') }}</a>

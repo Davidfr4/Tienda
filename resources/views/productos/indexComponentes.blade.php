@@ -39,19 +39,18 @@
                                 </form>
                             
                             @endif
-                            @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                            @if(Auth::check() and Auth::user()->hasRoles('cliente') && $producto->stock > 0)
                                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $producto->id }}" name="id">
                                     <input type="hidden" value="{{ $producto->name }}" name="name">
                                     <input type="hidden" value="{{ $producto->precio }}" name="price">
                                     <input type="hidden" value="1" name="quantity">
-                                    @if($producto->stock > 0)
-                                        <button class="px-4 py-2 text-white bg-blue-800 rounded mt-3">Añadir al carrito</button>
-                                    @else
-                                        <button class="px-4 py-2 text-white bg-blue-200 rounded mt-3" disabled>Añadir al carrito</button>
-                                    @endif
+                                    <button class="px-4 py-2 text-white bg-blue-800 rounded mt-3">Añadir al carrito</button>
+                                    
                                 </form>
+                            @else
+                                <button class="px-4 py-2 text-white bg-blue-200 rounded mt-3" disabled>Añadir al carrito</button>
                             @endif
                         </div>
                     </div>
