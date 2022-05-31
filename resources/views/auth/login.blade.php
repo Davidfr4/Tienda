@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 
 
 <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
     <div class="flex">
-        <div class="w-full">
-            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+        <div class="w-full col-lg-12 col-md-12">
+            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg mt-3">
 
                 <header class="font-semibold text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md text-white" style="background-color: orange;">
                     {{ __('Login') }}

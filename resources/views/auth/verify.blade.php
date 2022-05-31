@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
     <div class="flex">
-        <div class="w-full">
+        <div class="w-full col-lg-12 col-md-12">
 
             @if (session('resent'))
             <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100  px-3 py-4 mb-4"

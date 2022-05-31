@@ -23,7 +23,7 @@
 
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans altura">
-    <div id="app" class="pb-3">
+    <div id="app" class="pb-3 altura">
     <header class="py-6" style="background-color: orange;">
 
         <!-- MENÚ -->

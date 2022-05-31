@@ -23,7 +23,7 @@
 
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans altura">
-    <div id="app" class="pb-3 altura">
+    <div id="app" class="pb-3">
         <header class="py-6" style="background-color: orange;">
 
             <!-- MENÚ -->
@@ -51,6 +51,9 @@
                         <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
                         @endif
 
+                        @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
+                        @endif
 
                         @endauth
                     </ul>
@@ -85,6 +88,9 @@
                             </a>
                         @endif
 
+                        @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a><
+                        @endif
 
                     @endauth
 
