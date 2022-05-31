@@ -47,7 +47,11 @@
                                     <input type="hidden" value="{{ $producto->precio }}" name="precio">
                                     <input type="hidden" value="{{ $producto->imagen }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
-                                    <button class="px-4 py-2 text-white bg-blue-800 rounded mt-3">Añadir al carrito</button>
+                                    @if($producto->stock > 0)
+                                        <button class="px-4 py-2 text-white bg-blue-800 rounded mt-3">Añadir al carrito</button>
+                                    @else
+                                        <button class="px-4 py-2 text-white bg-blue-200 rounded mt-3" disabled>Añadir al carrito</button>
+                                    @endif
                                 </form>
                             @endif
                         </div>

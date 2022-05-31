@@ -6,9 +6,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <h1 class="text-center text-success col-lg-12 col-md-12 col-sm-12">{{ __("Listado de productos") }}</h1>
-        <!--<a href="{{ route("productos.create") }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            {{ __("Crear proyecto") }}
-        </a>-->
     
     <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-3 col-lg-12 col-md-12 col-sm-12">
         <div class="text-center">   
