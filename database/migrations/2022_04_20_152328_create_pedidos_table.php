@@ -17,7 +17,13 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->integer('cantidad_productos');
             $table->integer('precio_total');
-            $table->string('direccion_envio');
+            $table->string('pais');
+            $table->string('provincia');
+            $table->string('ciudad');
+            $table->string('codigoPostal');
+            $table->string('calle');
+            $table->string('portal');
+            $table->string('piso');
             $table->integer('id_usuario');
             $table->timestamps();
         });

@@ -54,12 +54,12 @@ class PayPalController extends Controller
             }
 
             return redirect()
-                ->route('createTransaction')
+                ->route('cart.list')
                 ->with('error', 'Something went wrong.');
 
         } else {
             return redirect()
-                ->route('createTransaction')
+                ->route('cart.list')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
@@ -98,5 +98,11 @@ class PayPalController extends Controller
         return redirect()
             ->route('createTransaction')
             ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+    }
+
+    public function pago()
+    {
+        $cartItems = \Cart::getContent();
+        return view('pago', compact('cartItems'));
     }
 }

@@ -13,8 +13,7 @@ class CartController extends Controller
 
     public function cartList()
     {
-        $cartItems = \Cart::getContent();
-        // dd($cartItems);
+        $cartItems = \Cart::getContent(); 
         return view('cart', compact('cartItems'));
     }
 
@@ -25,6 +24,7 @@ class CartController extends Controller
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->precio,
+            'stock' => $request->stock,
             'quantity' => $request->quantity,
             'attributes' => array(
                 'image' => $request->image,
@@ -47,15 +47,12 @@ class CartController extends Controller
             ]
         );
 
-        session()->flash('success', '¡Producto actualizado correctamente!');
-
         return redirect()->route('cart.list');
     }
 
     public function removeCart(Request $request)
     {
         \Cart::remove($request->id);
-        session()->flash('success', '¡Producto eliminado correctamente!');
 
         return redirect()->route('cart.list');
     }
@@ -63,8 +60,6 @@ class CartController extends Controller
     public function clearAllCart()
     {
         \Cart::clear();
-
-        session()->flash('success', '¡Carrito vaciado correctamente!');
 
         return redirect()->route('cart.list');
     }

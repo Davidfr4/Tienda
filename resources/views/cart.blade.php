@@ -33,7 +33,6 @@
                           <tbody>
                               @foreach ($cartItems as $item)
                             <tr>
-
                               <td class="hidden text-center pb-4 md:table-cell">
                                 <img src="images/{{ $item->attributes->image }}" class="w-20 rounded mt-4" style="width: 100px; height: 100px;" alt="">
                               </td>
@@ -42,19 +41,15 @@
                                 <p class="mb-2 md:ml-4 text-center">{{ $item->name }}</p>
                               </td>
 
-                              <td class="justify-center mt-6 md:flex">
-                                <div class="h-10 w-50 p-2 m-2">
-                                  <div class="relative flex flex-row w-full h-8">
-                                    
+                              <td class="hidden text-center md:table-cell">
+                                  <div class="text-center">
                                     <form action="{{ route('cart.update') }}" method="POST">
                                       @csrf
-                                      <input type="hidden" name="id" value="{{ $item->id}}" >
-                                    <input type="number" min=1 name="quantity" value="{{ $item->quantity }}" 
-                                    class="w-11 text-center bg-gray-200 rounded"/>
-                                    <button type="submit" class="px-1 py-2 ml-1 text-white bg-blue-500 rounded">Actualizar</button>
+                                      <input type="hidden" name="id" value="{{ $item->id }}" >
+                                      <input type="number" min=1 max="{{ $item->precio }}" name="quantity" value="{{ $item->quantity }}" 
+                                      class="w-11 text-center bg-gray-200 rounded"action="{{ route('cart.update') }}"/>
                                     </form>
                                   </div>
-                                </div>
                               </td>
 
                               <td class="hidden text-center md:table-cell">
@@ -98,9 +93,10 @@
                           </div>
 
                           <div class="col-lg-2 col-md-2 col-sm-4">
-                            <form action="{{ route('processTransaction') }}" method="GET">
+                            <form action="{{ route('pago') }}" method="GET">
                               @csrf
-                              <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}">Pagar</button>
+                              <input type="hidden" >
+                              <button class="btn btn-primary px-6 py-2 text-white mt-3">Pagar</button>
                             </form>
                           </div>
 
@@ -148,7 +144,7 @@
                           <div class="col-lg-2 col-md-2 col-sm-4">
                             <form action="{{ route('processTransaction') }}" method="POST">
                               @csrf
-                              <button id="comprar" name="comprar" class="btn btn-primary px-6 py-2 text-white mt-3" value="{{ Cart::getTotal() }}" disabled>Pagar</button>
+                              <button class="btn btn-primary px-6 py-2 text-white mt-3" disabled>Pagar</button>
                             </form>
                           </div>
                           
