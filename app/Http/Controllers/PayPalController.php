@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use App\Models\Pedidos;
 
 class PayPalController extends Controller
 {
@@ -49,6 +50,7 @@ class PayPalController extends Controller
             // redirect to approve href
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
+                    Pedidos::create(array_merge($request->only("id_usuario","name","email","precio_total","pais","provincia","ciudad","codigoPostal","calle","portal","piso")));
                     return redirect()->away($links['href']);
                 }
             }

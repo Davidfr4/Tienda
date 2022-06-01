@@ -10,9 +10,16 @@ class Pedidos extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cantidad_productos',
-        'precio_total',
-        'direccion_envio',
         'id_usuario',
+        'name',
+        'email',
+        'precio_total',
+        'pais',
+        'provincia',
+        'ciudad',
+        'codigoPostal',
+        'calle',
+        'portal',
+        'piso',
     ];
 }
