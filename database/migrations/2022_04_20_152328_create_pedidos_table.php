@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
             $table->integer('id_usuario');
             $table->string('name');
             $table->string('email');
-            $table->integer('precio_total');
+            $table->string('precio_total');
             $table->string('pais');
             $table->string('provincia');
             $table->string('ciudad');

@@ -63,7 +63,7 @@ class PayPalController extends Controller
             return redirect()
                 ->route('cart.list')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
-        }
+        }        
     }
 
     /**

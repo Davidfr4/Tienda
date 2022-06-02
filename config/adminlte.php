@@ -270,6 +270,11 @@ return [
             'icon' => 'fas fa-solid fa-list',
         ],
         [
+            'text' => 'Listar Pedidos',
+            'url'  => 'admin/list_pedidos',
+            'icon' => 'fas fa-solid fa-list',
+        ],
+        [
             'text'    => null,
             'icon'    => null,
             'submenu' => [

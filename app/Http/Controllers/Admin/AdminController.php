@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Producto;
 use App\Models\Categorias;
+use App\Models\Pedidos;
 
 class AdminController extends Controller
 {   
@@ -34,6 +35,13 @@ class AdminController extends Controller
     {        
         $categorias = categorias::paginate(10);
         return view("admin.list_categorias", compact("categorias"));
+        
+    }
+
+    public function list_pedidos()
+    {        
+        $pedidos = pedidos::paginate(10);
+        return view("admin.list_pedidos", compact("pedidos"));
         
     }
  

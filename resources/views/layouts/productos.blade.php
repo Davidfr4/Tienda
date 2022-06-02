@@ -24,113 +24,113 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans altura">
     <div id="app" class="pb-3">
-    <header class="py-6" style="background-color: orange;">
+        <header class="py-6" style="background-color: orange;">
 
-        <!-- MENÚ -->
-        <div class="container mx-auto flex justify-between items-center px-6">
+            <!-- MENÚ -->
+            <div class="container mx-auto flex justify-between items-center px-6">
 
-            <div class="d-flex d-lg-none">
-            
-                <button class="btn font-semibold menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="menu" style="background-color: #FF7A33;">
-                    <li><a href="/" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">Inicio</a></li>
-                    <li><a href="{{ route('productos.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Todos los productos") }}</a></li>
-                    <li><a href="{{ route('productos.indexComponentes') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Componentes de ordenador") }}</a></li>
-                    <li><a href="{{ route('productos.indexElectronica') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Productos de electrónica") }}</a></li>
-                    <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Electrodomésticos") }}</a></li>
+                <div class="d-flex d-lg-none">
+                
+                    <button class="btn font-semibold menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="menu" style="background-color: #FF7A33;">
+                        <li><a href="/" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">Inicio</a></li>
+                        <li><a href="{{ route('productos.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Todos los productos") }}</a></li>
+                        <li><a href="{{ route('productos.indexComponentes') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Componentes de ordenador") }}</a></li>
+                        <li><a href="{{ route('productos.indexElectronica') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Productos de electrónica") }}</a></li>
+                        <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Electrodomésticos") }}</a></li>
+
+                        @auth
+                        <li><a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Contacto") }}</a></li>
+                            
+
+                        @if(Auth::check() and Auth::user()->hasRoles('admin'))
+                        <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
+                        @endif
+                        
+                        @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
+                        @endif
+
+                        @endauth
+                    </ul>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
+                                {{ ("Inicio") }}
+                    </a>
+
+
+                    <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Productos
+                    </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
+
+                            <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
+                            <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
+                            <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
+                            <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
+
+                        </ul>
 
                     @auth
-                    <li><a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Contacto") }}</a></li>
-                        
+                        <a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
+                            {{ __("Contacto") }}
+                        </a>
 
-                    @if(Auth::check() and Auth::user()->hasRoles('admin'))
-                    <li><a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Panel administrador") }}</a></li>
-                    @endif
-                    
-                    @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-                    <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
-                    @endif
+                        @if(Auth::check() and Auth::user()->hasRoles('admin'))
+                            <a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
+                                {{ __("Panel administrador") }}
+                            </a>
+                        @endif
+
+                        @if(Auth::check() and Auth::user()->hasRoles('cliente'))
+                            <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
+                        @endif
 
                     @endauth
-                </ul>
-            </div>
 
-            <div class="d-none d-lg-block">
-                <a href="{{ url('/') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
-                            {{ ("Inicio") }}
-                </a>
+                </div>
 
+                <!-- LOGIN, REGISTER Y LOGOUT -->
+                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                    @guest
+                        <a class="no-underline hover:underline text-white btn btn-primary" href="{{ route('login') }}">{{ __('Acceder') }}</a>
+                        @if (Route::has('register'))
+                            <a class="no-underline hover:underline btn btn-primary" href="{{ route('register') }}">{{ __('Regístrate') }}</a>
+                        @endif
+                    @else
+                        <a href="{{ route('cart.list') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline">
+                            <div class="flex">
+                                <svg class="w-5 h-5 mt-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
 
-                <button class="btn dropdown-toggle menuGeneral menu text-white font-weight-bold px-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Productos
-                </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #FF7A33;">
-
-                        <li><a href="{{ route('productos.index') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Todos los productos") }}</a></li>
-                        <li><a href="{{ route('productos.indexComponentes') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Componentes de ordenador") }}</a></li>
-                        <li><a href="{{ route('productos.indexElectronica') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Productos de electrónica") }}</a></li>
-                        <li><a href="{{ route('productos.indexElectrodomesticos') }}" class="text-lg font-semibold no-underline px-3 text-white">{{ __("Electrodomésticos") }}</a></li>
-
-                    </ul>
-
-                @auth
-                    <a href="{{ route('contacta.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
-                        {{ __("Contacto") }}
-                    </a>
-
-                    @if(Auth::check() and Auth::user()->hasRoles('admin'))
-                        <a href="{{ route('admin.index') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">
-                            {{ __("Panel administrador") }}
+                                <div>{{ Cart::getTotalQuantity()}}</div>
+                            </div> 
                         </a>
-                    @endif
 
-                    @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
-                    @endif
+                        <span class="text-white">{{ Auth::user()->name }}</span>
 
-                @endauth
-
+                        <a href="{{ route('logout') }}"
+                        class="btn btn-danger text-white no-underline hover:underline"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                                                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                                                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                                                                </svg></a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
+                    @endguest
+                </nav>
             </div>
-
-            <!-- LOGIN, REGISTER Y LOGOUT -->
-            <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
-                @guest
-                    <a class="no-underline hover:underline text-white btn btn-primary" href="{{ route('login') }}">{{ __('Acceder') }}</a>
-                    @if (Route::has('register'))
-                        <a class="no-underline hover:underline btn btn-primary" href="{{ route('register') }}">{{ __('Regístrate') }}</a>
-                    @endif
-                @else
-                    <a href="{{ route('cart.list') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline">
-                        <div class="flex">
-                            <svg class="w-5 h-5 mt-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <div>{{ Cart::getTotalQuantity()}}</div>
-                        </div> 
-                    </a>
-
-                    <span class="text-white">{{ Auth::user()->name }}</span>
-
-                    <a href="{{ route('logout') }}"
-                    class="btn btn-danger text-white no-underline hover:underline"
-                    onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                                                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                                                                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                                                                             </svg></a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                        {{ csrf_field() }}
-                    </form>
-                @endguest
-            </nav>
-        </div>
-        <!-- FIN MENÚ -->
-    </header>
+            <!-- FIN MENÚ -->
+        </header>
         @if(session("success"))
             <script>
 
