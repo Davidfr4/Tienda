@@ -87,7 +87,7 @@
                     @endif
 
                     @if(Auth::check() and Auth::user()->hasRoles('cliente'))
-                        <a href="" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
+                    <a href="{{ route('productos.indexPedidos') }}" class="btn menuGeneral text-white text-lg text-gray-100 no-underline px-5">{{ __("Pedidos") }}</a>
                     @endif
 
                 @endauth

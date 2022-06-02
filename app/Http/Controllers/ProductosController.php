@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Pedidos;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,12 @@ class ProductosController extends Controller
     {    
         $productos = Producto::with('user')->where('id_categoria', 3)->paginate(9);    
         return view("productos.indexElectrodomesticos", compact("productos"));
+    }
+
+    public function indexPedidos()
+    {    
+        $pedidos = Pedidos::where('id_usuario', Auth::user()->id)->paginate(10);    
+        return view("productos.indexPedidos", compact("pedidos"));
     }
 
     /**
