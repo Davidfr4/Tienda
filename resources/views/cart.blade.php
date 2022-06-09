@@ -7,7 +7,7 @@
           <main class="my-8">
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">
-                    <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                    <div class="flex flex-col w-full p-8 text-gray-800 bg-white col-lg-12 col-md-12 col-sm-12 shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                       @if ($message = Session::get('success'))
                         <script>
 
@@ -112,7 +112,7 @@
         <main class="my-8">
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">
-                    <div class="flex flex-col w-full p-8 text-gray-800 bg-gray-200 shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                    <div class="flex flex-col w-full p-8 text-gray-800 bg-gray-200 col-lg-12 col-md-12 col-sm-12 shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                       @if ($message = Session::get('success'))
                           <script>
 

@@ -1,6 +1,18 @@
 @extends('layouts.carrito')
 
 @section("content")
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}" defer></script>
+    
+<!-- Styles -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">   
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">   
 
         <div class="col-5 rounded bg-white p-4 m-auto mt-3">
@@ -18,7 +30,7 @@
         </script>
     @endif
 
-<table class="table table-success table-striped col-5 mt-5" style="width: 100%">
+<table class="table table-success table-striped m-auto mt-5" style="width: 70%;">
     <thead>
     <tr>
         <th scope="col" class="text-center">{{ ("ID Pedido") }}</th>
@@ -59,7 +71,6 @@
            
         </div>
     @endif
- 
 
 </div>
 @endsection
