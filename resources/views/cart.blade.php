@@ -46,7 +46,7 @@
                                     <form action="{{ route('cart.update') }}" method="POST">
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id }}" >
-                                      <input type="number" min=1 max="{{ $item->precio }}" name="quantity" value="{{ $item->quantity }}" 
+                                      <input type="number" min=1 max="{{ $item->stock }}" name="quantity" value="{{ $item->quantity }}" 
                                       class="w-11 text-center bg-gray-200 rounded"action="{{ route('cart.update') }}"/>
                                     </form>
                                   </div>
@@ -89,7 +89,7 @@
                           </div>
 
                           <div class="col-lg-8 col-md-7 col-sm-4">
-                              <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar más productos</a>
+                              <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar más</a>
                           </div>
 
                           <div class="col-lg-2 col-md-2 col-sm-4">
@@ -138,7 +138,7 @@
                           </div>
 
                           <div class="col-lg-8 col-md-7 col-sm-4">
-                              <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar productos</a>
+                              <a href="/productos" class="btn btn-primary px-6 py-2 text-white mt-3">Comprar</a>
                           </div>
 
                           <div class="col-lg-2 col-md-2 col-sm-4">

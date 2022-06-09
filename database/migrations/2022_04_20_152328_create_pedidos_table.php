@@ -15,7 +15,7 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_usuario');
+            $table->foreignId('id_usuario')->constrained('users');
             $table->string('name');
             $table->string('email');
             $table->string('precio_total');

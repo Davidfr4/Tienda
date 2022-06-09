@@ -39,7 +39,7 @@ class ProductosController extends Controller
         return view("productos.indexElectrodomesticos", compact("productos"));
     }
 
-    public function indexPedidos()
+    public function pedidosProducto()
     {    
         $pedidos = Pedidos::where('id_usuario', Auth::user()->id)->paginate(10);    
         return view("productos.indexPedidos", compact("pedidos"));

@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.carrito')
 
 @section('content')
 <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.carrito')
 
 @section("content")
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">   
@@ -59,14 +59,7 @@
            
         </div>
     @endif
-
-    @if($pedidos->count() < 1)
-        
-        <script>
-            window.location.replace("/admin/list_pedidos");
-        </script>
-
-    @endif  
+ 
 
 </div>
 @endsection

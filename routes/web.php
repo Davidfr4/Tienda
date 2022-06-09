@@ -37,7 +37,7 @@ Route::resource("productos", ProductosController::class);
 Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes');
 Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica');
 Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos');
-Route::get('indexPedidos',[ProductosController::class,'indexPedidos'])->name('productos.indexPedidos');
+Route::get('pedidosProducto',[ProductosController::class,'pedidosProducto'])->name('productos.indexPedidos');
 
 
 // Rutas de categorias

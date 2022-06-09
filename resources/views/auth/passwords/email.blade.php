@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.carrito')
 
 @section('content')
 <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
