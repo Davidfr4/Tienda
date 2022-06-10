@@ -272,7 +272,7 @@ return [
         [
             'text' => 'Listar Pedidos',
             'url'  => 'admin/list_pedidos',
-            'icon' => 'fas fa-solid fa-list',
+            'icon' => 'fas fa-solid fa-clipboard-check',
         ],
         [
             'text'    => null,

@@ -65,6 +65,7 @@
     </tbody>
 </table>
 
+    <!-- PAGINADOR -->
     @if($pedidos->count())    
         <div class="mt-3">
             {{ $pedidos->links() }}
