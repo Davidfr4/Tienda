@@ -10,6 +10,8 @@ use \App\Http\Controllers\PayPalController;
 use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\CategoriasController;
 use \App\Http\Controllers\PedidosController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +35,11 @@ Route::resource('users', UserController::class);
 
 
 // Ruta de productos
-Route::resource("productos", ProductosController::class);
-Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes');
-Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica');
-Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos');
-Route::get('pedidosProducto',[ProductosController::class,'pedidosProducto'])->name('productos.indexPedidos');
+Route::resource("productos", ProductosController::class)->middleware('verified');;
+Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes')->middleware('verified');;
+Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica')->middleware('verified');;
+Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos')->middleware('verified');;
+Route::get('pedidosProducto',[ProductosController::class,'pedidosProducto'])->name('productos.indexPedidos')->middleware('verified');;
 
 
 // Rutas de categorias
@@ -49,10 +51,10 @@ Route::get('contacta', function (){
     $correo= new ContactaMail;
     Mail::to('angelai05@educastur.es')->send($correo);
     return ("mensaje enviado");
-});
+})->middleware('verified');;
 
-Route::get('contacta',[ContactaController::class,'index'])->name('contacta.index');
-Route::post('contacta',[ContactaController::class,'store'])->name('contacta.store');
+Route::get('contacta',[ContactaController::class,'index'])->name('contacta.index')->middleware('verified');;
+Route::post('contacta',[ContactaController::class,'store'])->name('contacta.store')->middleware('verified');;
 
 
 // Rutas panel de administrador
@@ -76,8 +78,26 @@ Route::get('pago', [PayPalController::class, 'pago'])->name('pago');
 
 
 // Rutas carrito de la compra
-Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list')->middleware('verified');;
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
+
+// Ruta verificación del correo
+Route::get('/email/verify', function () {
+    return view('verify');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
