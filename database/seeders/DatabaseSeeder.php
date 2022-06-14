@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
+            'email_verified_at' => '2022-01-01 00:00:00',
         ]);
         $admin->assignRole('admin');
         

@@ -12,15 +12,15 @@
 
 </style>
 
-<form class="bg-white col-lg-4 col-md-6 col-sm-12 m-auto p-3" method="POST" action="{{ $route }}" enctype="multipart/form-data">
+<form class="col-8 border-4 bg-white mt-3 row m-auto" method="POST" action="{{ $route }}" enctype="multipart/form-data">
     @csrf
     @isset($update)
         @method("PUT")
     @endisset
-    <h1 class="font-semibold py-5 text-blue mb-10 text-white px-5" style="background-color: orange;">{{ $title }} </h1>
+    <h1 class="font-semibold py-5 text-blue mb-10 bg-blue-900 text-white px-5 text-center col-12" style="background-color: orange;">{{ $title }} </h1>
 
     <!-- NOMBRE -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12">
         <div class="px-5">
             <label class="col-12" for="name">
                 {{ __("Nombre") }}
@@ -36,7 +36,7 @@
     <!-- FIN NOMBRE -->
 
     <!-- PRECIO -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12">
         <div class="px-5">
             <label class="col-12" for="precio">
                 {{ __("Precio") }}
@@ -52,7 +52,7 @@
     <!-- FIN PRECIO -->
 
     <!-- STOCK -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12">
         <div class="px-5">
             <label class="col-12" for="cantidad">
                 {{ __("Stock") }}
@@ -68,7 +68,7 @@
     <!-- FIN STOCK -->
 
     <!-- DESCRIPCIÓN -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12">
         <div class="px-5">
             <label class="col-12" for="descripcion">
                 {{ __("Descripcion") }}
@@ -84,7 +84,7 @@
     <!-- FIN DESCRIPCIÓN -->
 
     <!-- FABRICANTE -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12">
         <div class="px-5">
             <label class="col-12" for="fabricante">
                 {{ __("Fabricante") }}
@@ -100,7 +100,7 @@
     <!-- FIN FABRICANTE -->
 
     <!-- CATEGORÍA -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap mt-5 col-lg-6 col-md-6 col-sm-12 mb-5">
         <div class="px-5">
             <label class="col-12" for="categoria">
                 {{ __("Categoria") }}
@@ -122,13 +122,17 @@
     <!-- FIN CATEGORÍA -->
 
     <!-- IMAGEN -->
-    <div class="mb-1 mt-3">
+    <div class="flex flex-wrap col-lg-6 col-md-6 col-sm-12 text-center justify-center m-auto">
         <div class="px-5">
             <label class="col-12" for="imagen">
                 {{ __("Imagen") }}
             </label>
 
-            <input type="file" name="imagen" class="form-control col-12" placeholder="Imagen" required>
+            @if(isset($producto->imagen))
+                <img src="{{asset('images/'.$producto->imagen)}}" class="mt-3" style="max-height:400px; width: auto;">
+            @endif
+            
+            <input type="file" name="imagen" class="form-control col-12 mt-3" placeholder="Imagen" required>
 
             @error("Imagen")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -140,11 +144,12 @@
 
     <!-- FIN IMAGEN -->
 
-    <div class="md:flex md:items-center mt-3 mb-3 mx-5">
+    <div class="md:flex md:items-center col-12 mb-3 mx-5 mt-3">
         <div class="md:w-1/3">
             <button class="btn btn-primary text-white py-2 px-4 rounded mt-3" type="submit">
                 {{ $textButton }}
             </button>
         </div>
     </div>
+
 </form>
