@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Models\Pedidos;
+use Cookie;
 
 class PayPalController extends Controller
 {
@@ -50,7 +51,10 @@ class PayPalController extends Controller
             // redirect to approve href
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
-                    Pedidos::create(array_merge($request->only("id_usuario","name","email","precio_total","pais","provincia","ciudad","codigoPostal","calle","portal","piso")));
+                    $formulario = $request->only("id_usuario","name","email","precio_total","pais","provincia","ciudad","codigoPostal", "calle","portal","piso");
+                    
+                    $string = implode("/",$formulario);
+                    Cookie::queue('pedido', $string, 120);
                     return redirect()->away($links['href']);
                 }
             }
@@ -78,8 +82,28 @@ class PayPalController extends Controller
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
 
+        $cadena = Cookie::get('pedido');
+        $informacion = explode('/', $cadena);
+
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             app(CartController::class)->clearAllCart();
+             Pedidos::create(
+                array_merge(
+                    [
+                     "id_usuario" => $informacion[0],
+                     "name" => $informacion[1],
+                     "email" => $informacion[2],
+                     "precio_total" => $informacion[3],
+                     "pais" => $informacion[4],
+                     "provincia" => $informacion[5],
+                     "ciudad" => $informacion[6],
+                     "codigoPostal" => $informacion[7],
+                     "calle" => $informacion[8],
+                     "portal" => $informacion[9],
+                     "piso" => $informacion[10],
+                    ]
+                )
+            );
             return redirect()
                 ->route('cart.list')
                 ->with('success', 'Pago completado.');
