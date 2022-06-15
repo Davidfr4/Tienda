@@ -57,13 +57,5 @@
         </div>
     @endif
 
-    @if($pedidos->count() < 1)
-        
-        <script>
-            window.location.replace("/admin/list_pedidos");
-        </script>
-
-    @endif  
-
 </div>
 @endsection

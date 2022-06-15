@@ -35,11 +35,11 @@ Route::resource('users', UserController::class);
 
 
 // Ruta de productos
-Route::resource("productos", ProductosController::class)->middleware('verified');;
-Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes')->middleware('verified');;
-Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica')->middleware('verified');;
-Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos')->middleware('verified');;
-Route::get('pedidosProducto',[ProductosController::class,'pedidosProducto'])->name('productos.indexPedidos')->middleware('verified');;
+Route::resource("productos", ProductosController::class);
+Route::get('indexComponentes',[ProductosController::class,'indexComponentes'])->name('productos.indexComponentes');
+Route::get('indexElectronica',[ProductosController::class,'indexElectronica'])->name('productos.indexElectronica');
+Route::get('indexElectrodomesticos',[ProductosController::class,'indexElectrodomesticos'])->name('productos.indexElectrodomesticos');
+Route::get('pedidosProducto',[ProductosController::class,'pedidosProducto'])->name('productos.indexPedidos')->middleware('verified');
 
 
 // Rutas de categorias
@@ -51,10 +51,10 @@ Route::get('contacta', function (){
     $correo= new ContactaMail;
     Mail::to('angelai05@educastur.es')->send($correo);
     return ("mensaje enviado");
-})->middleware('verified');;
+})->middleware('verified');
 
-Route::get('contacta',[ContactaController::class,'index'])->name('contacta.index')->middleware('verified');;
-Route::post('contacta',[ContactaController::class,'store'])->name('contacta.store')->middleware('verified');;
+Route::get('contacta',[ContactaController::class,'index'])->name('contacta.index')->middleware('verified');
+Route::post('contacta',[ContactaController::class,'store'])->name('contacta.store')->middleware('verified');
 
 
 // Rutas panel de administrador
@@ -78,7 +78,7 @@ Route::get('pago', [PayPalController::class, 'pago'])->name('pago');
 
 
 // Rutas carrito de la compra
-Route::get('cart', [CartController::class, 'cartList'])->name('cart.list')->middleware('verified');;
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list')->middleware('verified');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
